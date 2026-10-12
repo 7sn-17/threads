@@ -1,0 +1,2466 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0c1410">
+<title>خيوط الجريمة — كل خيط يقودك إلى الحقيقة</title>
+
+<!-- أيقونة الموقع (Favicon) -->
+<link rel="icon" type="image/png" href="https://ghqubziqshdivovyeokj.supabase.co/storage/v1/object/public/case-images/icon.png">
+<link rel="apple-touch-icon" href="https://ghqubziqshdivovyeokj.supabase.co/storage/v1/object/public/case-images/icon.png">
+
+<!-- Meta Tags للمشاركة -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="خيوط الجريمة — كل خيط يقودك إلى الحقيقة">
+<meta property="og:description" content="لعبة تحقيق تفاعلية بالذكاء الاصطناعي. استجوب المتهمين، اكشف الأسرار، واكتشف القاتل.">
+<meta property="og:image" content="https://ghqubziqshdivovyeokj.supabase.co/storage/v1/object/public/case-images/icon.png">
+<meta property="og:url" content="https://7sn-17.github.io/threads">
+<meta property="og:site_name" content="خيوط الجريمة">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="خيوط الجريمة — كل خيط يقودك إلى الحقيقة">
+<meta name="twitter:description" content="لعبة تحقيق تفاعلية بالذكاء الاصطناعي.">
+<meta name="twitter:image" content="https://ghqubziqshdivovyeokj.supabase.co/storage/v1/object/public/case-images/icon.png">
+
+<!-- WhatsApp / Telegram -->
+<meta itemprop="name" content="خيوط الجريمة">
+<meta itemprop="description" content="لعبة تحقيق تفاعلية بالذكاء الاصطناعي.">
+<meta itemprop="image" content="https://ghqubziqshdivovyeokj.supabase.co/storage/v1/object/public/case-images/icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+:root{--bg:#0c1410;--bg2:#101c14;--panel:#16241b;--panel2:#1c2e22;--line:#354a3b;--line2:#4a6450;--cream:#ebe9dc;--muted:#9aa89a;--gold:#c9a96a;--gold2:#ead5a0;--mint:#cfdcc4;--ink:#0f1a13;--red:#c0664f;--red2:#e08b74;--green:#7cb87d;--shadow:0 22px 60px #0005;--radius:22px}
+*{box-sizing:border-box}html{scroll-behavior:smooth;overflow-x:hidden;max-width:100vw}
+body{margin:0;min-height:100vh;color:var(--cream);background:radial-gradient(ellipse at 15% -10%,#263d2b 0,transparent 40%),radial-gradient(ellipse at 100% 40%,#182a1d 0,transparent 38%),var(--bg);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;overflow-x:hidden;touch-action:pan-y;overscroll-behavior-x:none;position:relative}
+button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}button:disabled{opacity:.5;cursor:not-allowed}
+.hidden{display:none!important}
+.app{min-height:100vh;padding-bottom:24px}
+.wrap{width:min(100% - 28px,960px);margin:auto}
+
+/* Topbar */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px max(14px, calc((100vw - 960px) / 2 + 14px));
+  position:sticky;
+  top:0;
+  z-index:50;
+  width:100vw;
+  margin-left:calc(-50vw + 50%);
+  margin-bottom:22px;
+  background:linear-gradient(180deg,rgba(12,20,16,0.98) 0%,rgba(12,20,16,0.94) 100%);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid rgba(201,169,106,0.15);
+  box-shadow:0 6px 24px rgba(0,0,0,0.35);
+}
+.brand{display:flex;align-items:center;gap:13px}
+.brand-logo{width:52px;height:52px;flex-shrink:0}
+.brand-logo svg{width:100%;height:100%;filter:drop-shadow(0 4px 12px #c9a96a40)}
+.brand-title{font-family:"Cairo",sans-serif;font-weight:900;font-size:22px;letter-spacing:-.5px}
+.brand-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.top-actions{display:flex;gap:8px;align-items:center}
+.icon-btn{width:44px;height:44px;border-radius:14px;border:1px solid var(--line);background:#ffffff05;color:var(--cream);display:grid;place-items:center;transition:background .15s;position:relative}
+.icon-btn:hover{background:#ffffff0b}
+.icon-btn svg{width:20px;height:20px;stroke-width:1.8}
+
+/* Hint button (in topbar) */
+.hint-btn-top{
+  width:44px;height:44px;border-radius:14px;
+  border:1.5px solid #c9a96a88;
+  background:linear-gradient(135deg,#3a2f18,#241a0a);
+  color:#ead5a0;
+  display:grid;place-items:center;
+  position:relative;
+  box-shadow:0 4px 14px #c9a96a22,inset 0 1px #ffffff10;
+  transition:all .25s ease;
+}
+.hint-btn-top:hover{border-color:#c9a96a;box-shadow:0 6px 20px #c9a96a40}
+.hint-btn-top:active{transform:scale(.94)}
+.hint-btn-top:disabled{opacity:.4;cursor:not-allowed}
+.hint-btn-top svg{width:20px;height:20px;stroke-width:1.9}
+.hint-badge{
+  position:absolute;top:-6px;right:-6px;
+  min-width:20px;height:20px;padding:0 5px;
+  background:linear-gradient(135deg,#ead5a0,#b38c4d);
+  color:#1e241b;border:2px solid var(--bg);
+  border-radius:99px;
+  display:grid;place-items:center;
+  font-size:10px;font-weight:900;font-family:"Cairo",sans-serif;
+  line-height:1;
+}
+.hint-badge.pulse{animation:hintPulse 2s ease-in-out infinite}
+@keyframes hintPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 #c9a96a66}50%{transform:scale(1.12);box-shadow:0 0 0 6px #c9a96a00}}
+
+/* Screens */
+.screen{display:none;animation:arrive .3s ease}
+.screen.active{display:block}
+@keyframes arrive{from{opacity:.5;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+/* Typography */
+.eyebrow{color:var(--gold2);font-size:10px;letter-spacing:2.5px;font-weight:700;text-transform:uppercase;font-family:"Cairo",sans-serif}
+.display{font-family:"Cairo",sans-serif;font-weight:900;font-size:clamp(32px,7vw,54px);line-height:1.2;letter-spacing:-1px;margin:14px 0 16px}
+.lead{font-size:15px;line-height:1.95;color:#c3cdbf;max-width:620px}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin:8px 0 16px;flex-wrap:wrap}
+.section-head h2{font-family:"Cairo",sans-serif;font-weight:900;font-size:22px;margin:5px 0 0;letter-spacing:-.4px}
+.section-head p{font-size:12px;color:var(--muted);margin:5px 0 0}
+.story{font-size:14.5px;line-height:2.15;color:#d2d9cc;white-space:pre-wrap;word-break:break-word}
+.hero-note{color:#a8b4a4;font-size:12px;line-height:1.9;margin-top:14px}
+
+/* Buttons */
+.btn{min-height:50px;border-radius:15px;padding:12px 18px;border:1px solid transparent;display:inline-flex;align-items:center;justify-content:center;gap:9px;font-weight:600;font-size:14px;transition:transform .15s,background .15s,border-color .15s;white-space:nowrap;font-family:inherit}
+.btn:active{transform:scale(.98)}
+.btn svg{width:18px;height:18px;stroke-width:1.9}
+.btn-primary{background:var(--mint);color:var(--ink);box-shadow:0 8px 22px #0003}
+.btn-primary:hover{background:#e0ebd6}
+.btn-secondary{background:#ffffff05;color:var(--cream);border-color:#80917960}
+.btn-secondary:hover{background:#ffffff0e}
+.btn-gold{background:linear-gradient(135deg,#ddc58f,#b38c4d);color:#1e241b;box-shadow:0 8px 22px #b38c4d33}
+.btn-danger{background:#4b2722;color:#f0cfc5;border-color:#7f4237}
+.btn-small{min-height:38px;padding:8px 12px;border-radius:11px;font-size:12px}
+.btn-block{width:100%}
+
+/* Back button */
+.back-btn{width:46px;height:46px;flex-shrink:0;display:grid;place-items:center;border-radius:14px;background:linear-gradient(135deg,#1f3225,#16241b);border:1px solid #c9a96a55;color:var(--gold2);position:relative;overflow:hidden;transition:all .25s ease;box-shadow:0 4px 14px #0004,inset 0 1px #ffffff0e}
+.back-btn:active{transform:scale(.94)}
+.back-btn svg{width:22px;height:22px;stroke-width:2.2}
+
+/* Landing hero */
+.hero{position:relative;overflow:hidden;border:1px solid #72876880;border-radius:28px;padding:clamp(24px,5.5vw,44px);background:linear-gradient(135deg,#263d2d 0%,#1a2b20 64%,#16211a 100%);box-shadow:var(--shadow);min-height:490px}
+.hero:before{content:"";position:absolute;width:380px;height:380px;border:1px solid #d0b57418;border-radius:50%;top:-160px;left:-130px;box-shadow:0 0 0 32px #d0b57408,0 0 0 74px #d0b57405;pointer-events:none}
+.hero>*{position:relative}
+.hero-stamp{display:flex;align-items:center;gap:10px;color:var(--gold2);font-size:11px;font-weight:700;letter-spacing:2px;font-family:"Cairo",sans-serif}
+.stamp-line{height:1px;width:38px;background:var(--gold)}
+.hero-actions{display:flex;flex-direction:column;gap:10px;width:min(100%,360px);margin-top:26px}
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;margin:14px 0 22px}
+.feature{padding:16px 14px;border:1px solid #ffffff10;border-radius:18px;background:linear-gradient(150deg,#1a2a1f,#141f18)}
+.feature-icon{width:34px;height:34px;display:grid;place-items:center;color:var(--gold2);border:1px solid #bca16a42;border-radius:11px;margin-bottom:11px}
+.feature-icon svg{width:18px;height:18px}
+.feature h3{font-family:"Cairo",sans-serif;font-weight:800;font-size:13px;margin:0 0 5px}
+.feature p{font-size:11px;line-height:1.75;color:var(--muted);margin:0}
+
+/* Library — عرض كامل */
+.library-title{font-family:"Cairo",sans-serif;font-weight:900;font-size:24px;letter-spacing:-.8px;margin:3px 0 0}
+.library-filters{display:flex;gap:7px;overflow-x:auto;padding:8px 0 10px;scrollbar-width:none;flex-wrap:nowrap}
+.library-filters::-webkit-scrollbar{display:none}
+.filter-chip{flex-shrink:0;border:1px solid #6f806a55;border-radius:999px;padding:7px 12px;color:#d5dfcf;background:#ffffff04;font-size:11.5px;transition:all .2s;display:inline-flex;align-items:center;gap:5px;font-family:"Cairo",sans-serif;font-weight:600}
+.filter-chip:hover{border-color:var(--gold)}
+.filter-chip.active{background:var(--mint);color:var(--ink);border-color:transparent}
+.filter-chip svg{width:13px;height:13px}
+
+/* توسيع شاشة المكتبة */
+#libraryScreen{margin-left:-14px;margin-right:-14px;padding:0 4px}
+
+/* شبكة 2×2 */
+.library-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+@media(max-width:340px){.library-grid{grid-template-columns:1fr}}
+
+/* البطاقة */
+.case-card{position:relative;overflow:hidden;border-radius:16px;border:1px solid var(--line);background:linear-gradient(160deg,#1a2a20,#0f1a13);cursor:pointer;transition:transform .25s,border-color .25s,box-shadow .25s;display:flex;flex-direction:column}
+.case-card:hover{transform:translateY(-3px);border-color:#8fa07a;box-shadow:0 20px 50px #0008}
+.case-card:active{transform:translateY(-1px)}
+
+/* صورة الغلاف — أقصر لتوفير المساحة */
+.case-cover{position:relative;aspect-ratio:5/4;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#3d5740,#0f1a13 75%)}
+.case-cover img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) contrast(1.08);opacity:0;transition:opacity .8s ease}
+.case-cover img.loaded{opacity:1}
+.case-cover .cover-skeleton{position:absolute;inset:0;background:linear-gradient(110deg,#1a2a20 8%,#263a2c 18%,#1a2a20 33%);background-size:200% 100%;animation:shimmer 1.6s linear infinite;display:grid;place-items:center;color:#6e8065}
+.case-cover .cover-skeleton svg{width:44px;height:44px;stroke-width:1;opacity:.5}
+@keyframes shimmer{to{background-position:-200% 0}}
+.case-cover .cover-skeleton.done{opacity:0;pointer-events:none;transition:opacity .5s}
+.case-cover:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,#0f1a13 100%);z-index:1;pointer-events:none}
+
+/* الشارات */
+.case-badge{position:absolute;top:8px;right:8px;left:8px;z-index:2;display:flex;gap:4px;align-items:center;flex-wrap:wrap}
+.badge{background:#0e1914dd;border:1px solid #d3bd7b45;color:var(--gold2);font-size:8px;padding:3px 6px;border-radius:6px;font-weight:700;letter-spacing:.2px;backdrop-filter:blur(6px);font-family:"Cairo",sans-serif;display:inline-flex;align-items:center;gap:3px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.badge svg{width:9px;height:9px;flex-shrink:0}
+.badge.difficulty-easy{background:#1f3a24dd;border-color:#7cb87d55;color:#a8d9a9}
+.badge.difficulty-medium{background:#3a3a1fdd;border-color:#ddc58f55;color:#ead5a0}
+.badge.difficulty-hard{background:#3a1f1fdd;border-color:#c0664f55;color:#e08b74}
+
+/* محتوى البطاقة */
+.case-body{padding:10px;flex:1;display:flex;flex-direction:column;gap:5px;position:relative;z-index:2}
+.case-body h3{font-family:"Cairo",sans-serif;font-weight:900;font-size:13.5px;margin:0;line-height:1.3;color:#f0ebd9;letter-spacing:-.2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:36px}
+.case-victim{font-size:10px;color:var(--gold2);font-weight:700;display:flex;align-items:center;gap:4px;font-family:"Cairo",sans-serif;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.case-victim svg{width:11px;height:11px;flex-shrink:0}
+.case-location{font-size:9.5px;color:var(--muted);display:flex;align-items:center;gap:3px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.case-location svg{width:10px;height:10px;flex-shrink:0}
+.case-preview{font-size:10px;line-height:1.5;color:#b9c4b5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:2px 0}
+
+/* الإحصائيات */
+.case-stats{display:flex;gap:8px;margin-top:auto;padding-top:7px;border-top:1px solid #ffffff10;flex-wrap:wrap}
+.case-stat{display:flex;align-items:center;gap:3px;font-size:9px;color:var(--muted)}
+.case-stat svg{width:10px;height:10px;color:var(--gold2)}
+
+/* زر البدء */
+.case-play{margin-top:7px;width:100%;min-height:36px;border-radius:10px;background:linear-gradient(135deg,#cfdcc4,#b3c9a6);color:var(--ink);font-weight:800;font-size:11px;display:inline-flex;align-items:center;justify-content:center;gap:5px;border:0;font-family:"Cairo",sans-serif;padding:0 8px}
+.case-play:active{transform:scale(.98)}
+.case-play svg{width:13px;height:13px;flex-shrink:0}
+
+/* Panels */
+.panel{border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,#1e2f24,#17251d);padding:18px;margin-bottom:13px;box-shadow:0 8px 24px #0002}
+.panel-title{display:flex;align-items:center;gap:9px;font-size:16px;font-weight:800;margin:0 0 13px;font-family:"Cairo",sans-serif}
+.panel-title svg{color:var(--gold2);width:19px;height:19px;stroke-width:1.9}
+
+/* Case banner */
+.case-banner{padding:22px;border-radius:22px;background:linear-gradient(130deg,#2d4433,#1a2a20);border:1px solid #8a9b7b65;margin-bottom:13px;position:relative;overflow:hidden}
+.case-banner h1{font-family:"Cairo",sans-serif;font-weight:900;font-size:clamp(24px,5vw,32px);line-height:1.3;margin:10px 0 14px;position:relative;letter-spacing:-.6px}
+.case-meta{display:flex;gap:8px;flex-wrap:wrap;position:relative}
+.chip{border:1px solid #b7c6a62e;border-radius:999px;padding:6px 11px;font-size:11px;color:#d6dfd0;background:#ffffff05;white-space:nowrap;display:inline-flex;align-items:center;gap:5px}
+.chip svg{width:12px;height:12px}
+.fact-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fact{padding:13px;border-radius:14px;background:#0d171188;border:1px solid #ffffff0d}
+.fact-label{font-size:11px;color:var(--muted);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.fact-label svg{width:13px;height:13px;color:var(--gold2)}
+.fact-value{font-size:13.5px;line-height:1.75;color:#d8dccf}
+
+/* Timeline */
+.timeline-list{position:relative;padding-right:20px}
+.timeline-list:before{content:"";position:absolute;right:6px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,#c9a96a40,#c9a96a10)}
+.timeline-item{position:relative;padding:0 22px 14px 0}
+.timeline-item:before{content:"";position:absolute;right:0;top:6px;width:14px;height:14px;border-radius:50%;background:#0f1a13;border:2px solid var(--gold);box-shadow:0 0 0 4px #0f1a13}
+.timeline-time{font-size:11px;color:var(--gold2);font-weight:800;letter-spacing:.4px;font-family:"Cairo",sans-serif}
+.timeline-event{font-size:13px;line-height:1.7;color:#d2d9cc;margin-top:3px}
+
+/* Crime scene clues (بدون صور) */
+.clue-list{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:520px){.clue-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.clue-card{border:1px solid #8a7a5b55;border-radius:16px;background:linear-gradient(120deg,#2a3d2c,#1a2a20);overflow:hidden;display:flex;flex-direction:column;transition:border-color .25s,transform .25s}
+.clue-card:hover{border-color:#c9a96a88;transform:translateY(-2px)}
+.clue-header{position:relative;padding:22px 18px 12px;background:radial-gradient(ellipse at 50% 0%,#c9a96a18,transparent 70%);display:flex;justify-content:space-between;align-items:flex-start}
+.clue-icon-big{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#c9a96a25,#c9a96a08);border:1.5px solid #c9a96a55;display:grid;place-items:center;color:var(--gold2)}
+.clue-icon-big svg{width:28px;height:28px;stroke-width:1.6}
+.clue-cat-badge{font-size:10px;font-weight:700;color:var(--gold2);border:1px solid #c9a96a55;padding:5px 10px;border-radius:8px;background:#c9a96a0d;font-family:"Cairo",sans-serif;letter-spacing:.3px}
+.clue-content{padding:8px 18px 18px}
+.clue-content h4{font-family:"Cairo",sans-serif;font-weight:900;font-size:15px;margin:0 0 8px;color:var(--gold2);letter-spacing:-.2px}
+.clue-content p{font-size:12px;line-height:1.8;color:#c5cec1;margin:0 0 10px}
+.clue-sig{font-size:11.5px;line-height:1.7;color:#e0cf9c;padding:8px 10px;border-right:2px solid var(--gold);background:#c9a96a08;border-radius:6px;margin-top:8px;display:flex;gap:6px;align-items:flex-start}
+.clue-sig svg{width:14px;height:14px;flex-shrink:0;margin-top:2px;color:var(--gold2)}
+.clue-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.clue-meta span{font-size:10px;color:var(--muted);border:1px solid #ffffff10;border-radius:6px;padding:4px 8px;background:#0d171188;display:inline-flex;align-items:center;gap:4px}
+.clue-meta svg{width:11px;height:11px;color:var(--gold2)}
+
+/* Suspects grid */
+.suspect-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.suspect-card{overflow:hidden;border-radius:20px;border:1px solid var(--line);background:#18271e;transition:transform .2s,border-color .2s;display:flex;flex-direction:column}
+.suspect-card:hover{border-color:#7d9272}
+.suspect-art{position:relative;aspect-ratio:3/3.6;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#4a5d42,#16211a 72%)}
+.suspect-art img{width:100%;height:100%;object-fit:cover;filter:saturate(.75) contrast(1.05);opacity:0;transition:opacity .6s ease}
+.suspect-art img.loaded{opacity:1}
+.suspect-art .skeleton{position:absolute;inset:0;background:linear-gradient(110deg,#1d2c22 8%,#263a2c 18%,#1d2c22 33%);background-size:200% 100%;animation:shimmer 1.4s linear infinite;display:grid;place-items:center;color:#6e8065}
+.suspect-art .skeleton svg{width:50px;height:50px;stroke-width:1.2;opacity:.5}
+.suspect-art .skeleton.done{opacity:0;pointer-events:none;transition:opacity .4s}
+.suspect-num{position:absolute;top:9px;right:9px;background:#0e1914dd;border:1px solid #d3bd7b45;color:var(--gold2);font-size:9px;padding:4px 7px;border-radius:7px;z-index:2;letter-spacing:1px;font-weight:700;font-family:"Cairo",sans-serif}
+.suspect-body{padding:13px;flex:1;display:flex;flex-direction:column;gap:8px}
+.suspect-body h3{font-family:"Cairo",sans-serif;font-weight:800;font-size:15px;margin:0;line-height:1.3}
+.suspect-role{font-size:11px;color:var(--muted);line-height:1.6}
+.suspect-traits{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.trait-chip{font-size:10px;border:1px solid #c9a96a40;color:var(--gold2);border-radius:7px;padding:3px 7px;background:#c9a96a0d;display:inline-flex;align-items:center;gap:4px;font-weight:600}
+.trait-chip svg{width:11px;height:11px}
+.trait-chip.emotion{background:#ffffff08;border-color:#ffffff15;color:#b8c4b3}
+.tension-mini{margin-top:6px}
+.tension-mini-head{display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted);margin-bottom:4px}
+.tension-mini-bar{height:4px;background:#ffffff10;border-radius:4px;overflow:hidden}
+.tension-mini-bar>span{display:block;height:100%;background:linear-gradient(90deg,#8c9c75,#ddc58f);transition:width .4s}
+.suspect-open{margin-top:10px;width:100%;min-height:42px;border-radius:12px;background:linear-gradient(135deg,#cfdcc4,#b3c9a6);color:var(--ink);font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;gap:7px;border:0;font-family:"Cairo",sans-serif}
+.suspect-open svg{width:16px;height:16px}
+
+/* Room scene */
+.room-scene{position:relative;overflow:hidden;border-radius:24px;border:1px solid #5a7055;background:radial-gradient(ellipse at 50% 0%,#3d5740 0%,#1d2e22 45%,#0f1a13 100%);padding:20px;margin-bottom:14px;box-shadow:inset 0 -40px 60px #00000060,0 10px 30px #0003}
+.room-scene:before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:220px;background:radial-gradient(ellipse at 50% 0%,#e6d39a22,transparent 70%);pointer-events:none;filter:blur(2px)}
+.room-scene:after{content:"";position:absolute;bottom:0;left:0;right:0;height:70px;background:linear-gradient(180deg,transparent,#0a1310 85%);pointer-events:none}
+.room-wall{position:absolute;inset:0;opacity:.08;pointer-events:none;background-image:repeating-linear-gradient(0deg,#c9a96a15 0,#c9a96a15 1px,transparent 1px,transparent 32px),repeating-linear-gradient(90deg,#c9a96a10 0,#c9a96a10 1px,transparent 1px,transparent 32px)}
+.room-label{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:9.5px;color:var(--gold2);letter-spacing:1.4px;margin-bottom:14px;position:relative;z-index:2;font-family:"Cairo",sans-serif}
+.room-label span{display:inline-flex;align-items:center;gap:5px}
+.room-label .live-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:.4}50%{opacity:1}}
+.suspect-stage{position:relative;display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:center;padding:16px;border:1px solid #ffffff14;border-radius:18px;background:#0a141060;z-index:2;backdrop-filter:blur(4px)}
+.suspect-portrait{width:120px;height:150px;overflow:hidden;border-radius:14px;background:linear-gradient(145deg,#3d5137,#141f16);display:grid;place-items:center;color:var(--gold2);border:1px solid #d2b77550;position:relative}
+.suspect-portrait img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s}
+.suspect-portrait img.loaded{opacity:1}
+.suspect-portrait .p-skel{position:absolute;inset:0;background:#1a281e;display:grid;place-items:center}
+.suspect-portrait .p-skel svg{width:44px;height:44px;stroke-width:1.2;color:#607056}
+.suspect-portrait .p-skel.done{display:none}
+.suspect-info h2{font-family:"Cairo",sans-serif;font-weight:900;font-size:24px;margin:0 0 4px;line-height:1.25}
+.suspect-info p{font-size:11.5px;line-height:1.7;color:var(--muted);margin:0}
+.emotion-badge{display:inline-flex;align-items:center;gap:6px;border:1px solid #c9a96a4c;color:var(--gold2);border-radius:9px;padding:5px 9px;font-size:10px;margin-top:10px;font-weight:700;font-family:"Cairo",sans-serif}
+.emotion-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.secrets-mini{display:flex;gap:5px;margin-top:10px;align-items:center}
+.secrets-mini .s-dot{width:18px;height:5px;border-radius:3px;background:#ffffff14;transition:background .3s}
+.secrets-mini .s-dot.on{background:linear-gradient(90deg,#ddc58f,#b38c4d);box-shadow:0 0 8px #c9a96a60}
+.secrets-mini small{font-size:9.5px;color:var(--muted);margin-left:6px}
+
+/* Tension */
+.tension{margin:16px 0 4px;position:relative;z-index:2}
+.tension-head{display:flex;justify-content:space-between;font-size:11px;color:#d4dbd0;margin-bottom:6px}
+.tension-head strong{color:var(--gold2);font-weight:800;font-family:"Cairo",sans-serif}
+.tension-bar{height:7px;background:#0a1310;border-radius:8px;overflow:hidden;border:1px solid #ffffff08}
+.tension-bar>span{display:block;height:100%;background:linear-gradient(90deg,#8c9c75,#ddc58f);width:20%;transition:width .5s ease,background .4s}
+.tension-bar>span.warn{background:linear-gradient(90deg,#ddc58f,#c9a96a)}
+.tension-bar>span.danger{background:linear-gradient(90deg,#c0664f,#8b3a2b)}
+
+/* Chat */
+.chat-wrap{margin-top:14px;position:relative;z-index:2}
+.chat-log{display:flex;flex-direction:column;gap:11px;min-height:180px;max-height:42vh;overflow-y:auto;padding:4px 2px 10px;scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:#354a3b transparent}
+.chat-log::-webkit-scrollbar{width:6px}
+.chat-log::-webkit-scrollbar-thumb{background:#354a3b;border-radius:4px}
+.chat-empty{border:1px dashed #5c705866;border-radius:14px;padding:20px;text-align:center;color:var(--muted);font-size:12px;line-height:1.9}
+.message{max-width:88%;padding:11px 14px;border-radius:14px;font-size:13.5px;line-height:1.85;white-space:pre-wrap;word-wrap:break-word;overflow-wrap:anywhere;animation:msgIn .3s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.message.user{align-self:flex-start;background:#d8e4ce;color:#1b2a20;border-bottom-left-radius:5px}
+.message.suspect{align-self:flex-end;background:#24352a;border:1px solid #5a6d4f55;color:#e6e8de;border-bottom-right-radius:5px}
+.message.system{align-self:center;background:#c9a96a1a;border:1px dashed #c9a96a55;color:var(--gold2);font-size:11.5px;padding:8px 13px;border-radius:11px;max-width:92%;text-align:center;display:inline-flex;align-items:center;gap:6px}
+.message.system svg{width:14px;height:14px}
+
+/* Composer */
+.composer{display:flex;align-items:flex-end;gap:8px;padding:7px;border-radius:16px;border:1px solid var(--line2);background:#0d1712;margin-top:10px}
+.composer textarea{min-width:0;flex:1;resize:none;max-height:110px;min-height:42px;background:transparent;border:0;color:var(--cream);outline:none;padding:10px 8px;line-height:1.55;font-size:13.5px;font-family:inherit}
+.composer textarea::placeholder{color:#748073}
+.composer textarea:disabled{opacity:.5}
+.composer .icon-btn{flex-shrink:0;width:42px;height:42px;border-radius:13px;position:relative}
+.composer .icon-btn.recording{border-color:var(--red);background:#3a1a15}
+.composer .icon-btn.recording:before{content:"";position:absolute;inset:-3px;border-radius:15px;border:2px solid var(--red);animation:micPulse 1.3s ease-in-out infinite}
+@keyframes micPulse{0%,100%{opacity:.4;transform:scale(1)}50%{opacity:0;transform:scale(1.15)}}
+.send-btn{width:43px;height:43px;border:0;border-radius:13px;background:var(--mint);color:var(--ink);display:grid;place-items:center;flex-shrink:0}
+.send-btn svg{width:18px;height:18px}
+.send-btn.loading{background:#7a8a70;pointer-events:none}
+.quick-questions{display:flex;gap:7px;overflow-x:auto;padding:8px 0;scrollbar-width:none}
+.quick-questions::-webkit-scrollbar{display:none}
+.quick-questions button{flex-shrink:0;border:1px solid #6f806a55;border-radius:999px;padding:7px 12px;color:#d5dfcf;background:#ffffff04;font-size:11.5px;transition:border-color .15s;font-family:inherit}
+.quick-questions button:hover{border-color:var(--gold)}
+
+/* Evidence */
+.evidence-list{display:grid;gap:10px}
+.evidence-item{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;padding:13px;border-radius:15px;border:1px solid #5f755666;background:linear-gradient(110deg,#22342a,#182720);transition:border-color .2s}
+.evidence-item:hover{border-color:#8fa07a}
+.evidence-icon{width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#c9a96a16;color:var(--gold2);border:1px solid #c9a96a3a}
+.evidence-icon svg{width:19px;height:19px}
+.evidence-item h3{font-family:"Cairo",sans-serif;font-weight:800;font-size:13px;margin:1px 0 5px;line-height:1.4}
+.evidence-item p{font-size:11px;line-height:1.75;color:#b9c4b5;margin:0;word-break:break-word}
+.evidence-item .meta{font-size:10px;color:#d4bd80;margin-top:6px;display:flex;align-items:center;gap:5px}
+.evidence-item .meta svg{width:11px;height:11px}
+.empty-state{padding:26px 16px;border:1px dashed #6b7d6566;border-radius:16px;text-align:center;color:var(--muted);font-size:12px;line-height:1.9}
+.empty-state svg{width:28px;height:28px;color:var(--gold2);margin-bottom:8px;stroke-width:1.4}
+
+/* Verdict */
+.accuse-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.accuse-option{border:1px solid var(--line);border-radius:16px;background:#18271e;color:var(--cream);padding:13px;text-align:right;display:flex;align-items:center;gap:10px;transition:border-color .2s,background .2s;font-family:inherit}
+.accuse-option.selected{border-color:var(--gold);background:#2f4130;box-shadow:0 0 0 2px #c9a96a20}
+.accuse-option .radio{width:20px;height:20px;border:1.5px solid #6f806b;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+.accuse-option.selected .radio:after{content:"";width:9px;height:9px;border-radius:50%;background:var(--gold2)}
+.accuse-option strong{display:block;font-size:13px;line-height:1.3;font-family:"Cairo",sans-serif;font-weight:800}
+.accuse-option small{display:block;font-size:10px;color:var(--muted);margin-top:3px}
+
+/* Result */
+.tabs-nav{display:flex;gap:6px;padding:6px;border:1px solid var(--line);border-radius:15px;background:#101c14;margin-bottom:16px;overflow-x:auto;scrollbar-width:none}
+.tabs-nav::-webkit-scrollbar{display:none}
+.tab-btn{flex:1;min-width:max-content;padding:10px 14px;border-radius:11px;background:transparent;border:0;color:var(--muted);font-weight:700;font-size:12.5px;transition:all .2s;white-space:nowrap;font-family:"Cairo",sans-serif}
+.tab-btn.active{background:var(--mint);color:var(--ink)}
+.tab-content{display:none}
+.tab-content.active{display:block;animation:arrive .3s ease}
+.result-hero{text-align:center;padding:32px 20px;border:1px solid #7b8b6d66;border-radius:22px;background:linear-gradient(145deg,#2b3c2c,#16221b);position:relative;overflow:hidden}
+.result-hero.win{border-color:#7caf7d66;background:linear-gradient(145deg,#2e4a2f,#16291b)}
+.result-hero.lose{border-color:#8b4a4066;background:linear-gradient(145deg,#3b2622,#1e1512)}
+.result-seal{width:88px;height:88px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;color:var(--gold2);margin:0 auto 18px;position:relative}
+.result-hero.win .result-seal{border-color:var(--green);color:var(--green);box-shadow:0 0 0 10px #7cb87d10,0 0 50px #7cb87d1a}
+.result-hero.lose .result-seal{border-color:var(--red2);color:var(--red2);box-shadow:0 0 0 10px #c0664f10,0 0 50px #c0664f1a}
+.result-seal svg{width:36px;height:36px;stroke-width:1.6}
+.result-hero h2{font-family:"Cairo",sans-serif;font-weight:900;font-size:clamp(24px,5.5vw,32px);margin:6px 0 10px;position:relative;line-height:1.25;letter-spacing:-.6px}
+.result-hero p{font-size:13.5px;color:#c6d0c1;line-height:1.9;position:relative;margin:8px 0}
+.result-hero p strong{color:var(--gold2)}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:14px}
+.stat{padding:14px;border:1px solid #ffffff10;border-radius:14px;background:#0d171170;text-align:center}
+.stat strong{font-size:24px;display:block;color:var(--gold2);font-weight:900;line-height:1.1;font-family:"Cairo",sans-serif}
+.stat span{font-size:10.5px;color:var(--muted);display:block;margin-top:5px}
+.share-actions{display:flex;flex-direction:column;gap:9px;margin-top:14px}
+
+/* Conclusion */
+.conclusion-hero{text-align:center;padding:44px 24px;border:1px solid #7b8b6d66;border-radius:24px;background:radial-gradient(ellipse at 50% 0%,#314a34,#152019 70%);position:relative;overflow:hidden;margin-bottom:16px}
+.conclusion-hero p{position:relative;color:#c6d0c1;line-height:1.9;font-size:14px}
+.conclusion-seal{width:110px;height:110px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;color:var(--gold2);margin:0 auto 22px;position:relative;background:radial-gradient(circle,#c9a96a0d,transparent 70%)}
+.conclusion-seal svg{width:48px;height:48px;stroke-width:1.4}
+
+/* Footer */
+.footer{border-top:1px solid #ffffff10;padding:22px 0 30px;margin-top:24px;display:flex;justify-content:space-between;gap:12px;align-items:center;color:#7d8a7c;font-size:10.5px;flex-wrap:wrap}
+.footer strong{color:#bfc9ba;font-weight:700;font-family:"Cairo",sans-serif}
+.footer .dev-line{color:var(--gold2);font-size:10.5px;letter-spacing:.5px}
+
+/* Dock */
+.dock-space{height:110px}
+.bottom-dock{display:none;position:fixed;z-index:30;left:50%;bottom:calc(12px + env(safe-area-inset-bottom));transform:translateX(-50%);width:min(calc(100% - 22px),560px);grid-template-columns:repeat(5,minmax(0,1fr));align-items:end;gap:3px;padding:8px 7px;border:1px solid #80917960;border-radius:26px;background:linear-gradient(145deg,#25372bd9,#0f1812f5);box-shadow:0 16px 50px #0009,inset 0 1px #ffffff16;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}
+.game-active .bottom-dock{display:grid}
+.game-active.hide-dock .bottom-dock{display:none!important}
+.dock-btn{min-width:0;min-height:54px;padding:8px 2px;border:1px solid transparent;border-radius:16px;background:transparent;color:#9aa89a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-size:9px;white-space:nowrap;transition:all .2s;font-family:"Cairo",sans-serif;font-weight:600}
+.dock-btn svg{width:19px;height:19px;stroke-width:1.8}
+.dock-btn.active:not(.dock-center){background:#ffffff0b;color:#e7eadf;border-color:#ffffff0c}
+.dock-btn.dock-center{min-height:68px;margin-top:-22px;border-radius:20px;background:linear-gradient(145deg,#e4ecd9,#bfd2b5);color:#1b2b20;border-color:#f0f5e9;box-shadow:0 8px 22px #0006,inset 0 1px #ffffffb0}
+.dock-btn.dock-center svg{width:24px;height:24px;stroke-width:2}
+.dock-btn.dock-center span{font-weight:800}
+.dock-btn:active{transform:scale(.96)}
+
+/* Toasts */
+.toast-stack{position:fixed;z-index:100;left:12px;right:12px;top:calc(12px + env(safe-area-inset-top));display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
+.toast{width:min(100%,440px);display:flex;align-items:center;gap:10px;padding:12px 15px;border-radius:14px;background:#dde6d5;color:#1c2b20;border:1px solid #c2d4b6;box-shadow:0 12px 34px #0008;font-size:12.5px;font-weight:700;animation:toastIn .3s ease;font-family:"Cairo",sans-serif}
+.toast svg{width:18px;height:18px;flex-shrink:0}
+.toast.error{background:#f1dcd4;border-color:#d7a497;color:#572b24}
+.toast.info{background:#dce9e7;border-color:#abc8c3;color:#193b37}
+@keyframes toastIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;z-index:90;background:#060b08cf;display:grid;place-items:center;padding:20px;backdrop-filter:blur(8px)}
+.modal-backdrop.modal-center{place-items:center;padding:20px}
+.modal-backdrop.modal-center .modal{max-height:80dvh}
+.modal{width:min(100%,540px);max-height:88dvh;overflow:auto;border:1px solid #6d8064;border-radius:22px;background:#1a281f;box-shadow:0 25px 80px #000b;padding:22px;animation:modalIn .25s ease}
+.modal h2{font-family:"Cairo",sans-serif;font-weight:900;font-size:24px;margin:0 0 10px;letter-spacing:-.4px}
+.modal p{font-size:13px;line-height:1.9;color:var(--muted)}
+@keyframes modalIn{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* Loading */
+.loading-screen{position:fixed;inset:0;z-index:80;display:grid;place-items:center;background:#0a120eef;padding:24px;backdrop-filter:blur(14px)}
+.loader-card{width:min(100%,340px);text-align:center;padding:32px 22px;border:1px solid #5f7155;border-radius:22px;background:linear-gradient(145deg,#243726,#16211a)}
+.loader-orbit{width:80px;height:80px;border-radius:50%;border:1px solid #c9a96a77;margin:0 auto 20px;display:grid;place-items:center;position:relative;color:var(--gold2)}
+.loader-orbit:before{content:"";position:absolute;inset:7px;border:1px dashed #c9a96a70;border-radius:50%;animation:spin 9s linear infinite}
+.loader-orbit svg{width:30px;height:30px;stroke-width:1.4}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loader-card h2{font-family:"Cairo",sans-serif;font-weight:900;font-size:22px;margin:0 0 8px}
+.loader-card p{font-size:12.5px;line-height:1.9;color:var(--muted);margin:0}
+
+/* Settings */
+.field{display:flex;flex-direction:column;gap:7px;margin:14px 0}
+.field label{font-size:12px;color:#d9dfd2;font-weight:700;font-family:"Cairo",sans-serif}
+.field input{width:100%;padding:12px 13px;border:1px solid var(--line2);border-radius:12px;background:#0d1712;color:var(--cream);direction:ltr;text-align:left;font-size:13px}
+.settings-row{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid #ffffff10}
+.settings-row:last-child{border:0}
+.settings-row strong{display:block;font-size:13px;font-weight:700;font-family:"Cairo",sans-serif}
+.settings-row small{display:block;color:var(--muted);font-size:10.5px;margin-top:3px}
+.switch{width:42px;height:24px;border:1px solid var(--line2);border-radius:99px;background:#0d1712;padding:3px;flex-shrink:0;cursor:pointer;position:relative}
+.switch:after{content:"";display:block;width:16px;height:16px;background:#9aa89a;border-radius:50%;transition:transform .2s,background .2s}
+.switch.on{background:#4a6040}
+.switch.on:after{background:#e1e9d7;transform:translateX(-18px)}
+.modal-actions{display:flex;gap:9px;margin-top:18px}
+.modal-actions>*{flex:1}
+
+/* Secret cards */
+.secret-card{padding:13px;border:1px solid #bda66b45;border-radius:13px;background:#c9a96a0b;margin-top:9px}
+.secret-card strong{font-size:12.5px;color:var(--gold2);display:flex;align-items:center;gap:7px;font-weight:800;font-family:"Cairo",sans-serif}
+.secret-card strong svg{width:14px;height:14px}
+.secret-card p{margin:7px 0 0;color:#d2d9cc;font-size:12.5px;line-height:1.8}
+
+/* Responsive */
+@media(min-width:700px){
+  .hero{min-height:540px}
+  .hero-actions{width:380px}
+  .chat-log{max-height:440px}
+  .modal-backdrop{place-items:center}
+  .feature-grid{gap:14px}
+}
+@media(max-width:420px){
+  .wrap{width:calc(100% - 22px)}
+  .brand-title{font-size:19px}
+  .brand-logo{width:46px;height:46px}
+  .hero{padding:24px 20px;min-height:0}
+  .display{font-size:30px}
+  .lead{font-size:13px}
+  .feature{padding:12px 10px}
+  .panel{padding:15px}
+  .case-banner{padding:20px}
+  .suspect-body{padding:11px}
+  .suspect-body h3{font-size:13.5px}
+  .suspect-stage{grid-template-columns:96px 1fr;padding:12px;gap:12px}
+  .suspect-portrait{width:96px;height:124px}
+  .suspect-info h2{font-size:21px}
+  .dock-btn{font-size:8.5px}
+  .bottom-dock{width:calc(100% - 14px);padding:7px 4px;gap:1px;border-radius:22px}
+  .dock-btn.dock-center{min-height:62px;margin-top:-16px;border-radius:18px}
+  .stat{padding:11px}
+  .stat strong{font-size:20px}
+  .room-scene{padding:14px}
+  .accuse-grid{grid-template-columns:1fr}
+  .case-body h3{font-size:18px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+
+/* ═══════════════════════════════════════════════
+   قاعة الشرف — Leaderboard
+   ═══════════════════════════════════════════════ */
+
+#leaderboardScreen{
+  position:relative;
+  min-height:100vh;
+  padding-bottom:140px;
+}
+#leaderboardScreen:before{
+  content:"";
+  position:fixed;inset:0;z-index:-1;
+  background:radial-gradient(ellipse at 50% -10%,#2d4433 0%,#0f1a13 45%,#080f0a 100%);
+  pointer-events:none;
+}
+#leaderboardScreen:after{
+  content:"";
+  position:fixed;inset:0;z-index:-1;opacity:.4;
+  background-image:
+    radial-gradient(1px 1px at 20% 30%,#c9a96a66,transparent),
+    radial-gradient(1px 1px at 60% 70%,#c9a96a44,transparent),
+    radial-gradient(1px 1px at 80% 20%,#c9a96a33,transparent),
+    radial-gradient(1px 1px at 35% 85%,#c9a96a44,transparent),
+    radial-gradient(1px 1px at 90% 50%,#c9a96a33,transparent),
+    radial-gradient(1px 1px at 15% 65%,#c9a96a55,transparent),
+    radial-gradient(1px 1px at 45% 15%,#c9a96a44,transparent);
+  pointer-events:none;
+}
+
+/* Header */
+.lb-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;position:relative;z-index:2}
+.lb-title{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:28px;
+  margin:3px 0 0;
+  letter-spacing:-1px;
+  background:linear-gradient(135deg,#ead5a0 0%,#c9a96a 50%,#b38c4d 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.lb-subtitle{font-size:12px;color:var(--muted);margin:3px 0 0}
+
+/* ═══ Podium (Top 3) ═══ */
+.podium{
+  display:grid;
+  grid-template-columns:1fr 1.15fr 1fr;
+  gap:8px;
+  align-items:end;
+  margin-bottom:22px;
+  position:relative;
+  z-index:2;
+}
+.podium-card{
+  position:relative;
+  border-radius:20px;
+  padding:18px 10px 14px;
+  text-align:center;
+  background:linear-gradient(160deg,#1e2f24,#0f1a13);
+  border:1px solid var(--line);
+  transition:transform .3s,border-color .3s;
+  cursor:pointer;
+}
+.podium-card:hover{transform:translateY(-4px)}
+.podium-card:active{transform:translateY(-1px)}
+
+.podium-card.rank-1{
+  padding-top:26px;
+  border-color:#ead5a0;
+  background:linear-gradient(160deg,#3a2f18,#1a1408);
+  box-shadow:0 0 0 1px #c9a96a33,0 10px 40px #c9a96a22,inset 0 1px #ffffff1a;
+  animation:championGlow 3s ease-in-out infinite;
+}
+@keyframes championGlow{
+  0%,100%{box-shadow:0 0 0 1px #c9a96a33,0 10px 40px #c9a96a22,inset 0 1px #ffffff1a}
+  50%{box-shadow:0 0 0 1px #c9a96a66,0 15px 60px #c9a96a55,inset 0 1px #ffffff2a}
+}
+.podium-card.rank-2{border-color:#a8b0b6;background:linear-gradient(160deg,#2a3238,#111820)}
+.podium-card.rank-3{border-color:#b8895b;background:linear-gradient(160deg,#3a2a1e,#1a120a)}
+
+.medal{
+  width:60px;height:60px;
+  border-radius:50%;
+  margin:0 auto 12px;
+  display:grid;place-items:center;
+  position:relative;
+  background:radial-gradient(circle,#1a1408,#0a0a08);
+  border:2px solid;
+}
+.medal svg{width:30px;height:30px;stroke-width:1.8}
+.rank-1 .medal{border-color:#ead5a0;color:#ead5a0;box-shadow:0 0 25px #c9a96a88,inset 0 0 18px #c9a96a33}
+.rank-2 .medal{border-color:#c8d0d6;color:#c8d0d6;box-shadow:0 0 18px #a8b0b666,inset 0 0 15px #a8b0b622}
+.rank-3 .medal{border-color:#d4a373;color:#d4a373;box-shadow:0 0 18px #b8895b66,inset 0 0 15px #b8895b22}
+
+.podium-rank{
+  position:absolute;
+  top:-11px;right:50%;transform:translateX(50%);
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:11px;
+  padding:4px 11px;
+  border-radius:8px;
+  letter-spacing:.5px;
+  box-shadow:0 4px 12px #0006;
+}
+.rank-1 .podium-rank{background:linear-gradient(135deg,#ead5a0,#b38c4d);color:#1a1408}
+.rank-2 .podium-rank{background:linear-gradient(135deg,#d8e0e6,#8a929a);color:#111820}
+.rank-3 .podium-rank{background:linear-gradient(135deg,#e0b088,#8a6040);color:#1a120a}
+
+.podium-name{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:13px;
+  margin:0 0 6px;
+  line-height:1.2;
+  color:#f0ebd9;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  padding:0 4px;
+}
+.rank-1 .podium-name{font-size:15px;color:#f5e9c8}
+
+.podium-score{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:24px;
+  color:#c9a96a;
+  line-height:1;
+}
+.rank-1 .podium-score{
+  font-size:30px;
+  background:linear-gradient(135deg,#ead5a0,#b38c4d);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.podium-score-label{font-size:9px;color:var(--muted);margin-top:3px;letter-spacing:1.5px;font-weight:700}
+
+.podium-stats{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  margin-top:10px;
+  flex-wrap:wrap;
+}
+.podium-stat{
+  font-size:10px;
+  color:#b8c4b3;
+  display:inline-flex;align-items:center;gap:3px;
+  font-weight:600;
+}
+.podium-stat svg{width:11px;height:11px;color:var(--gold2)}
+
+/* ═══ List (from rank 4) ═══ */
+.lb-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;position:relative;z-index:2}
+.lb-row{
+  display:grid;
+  grid-template-columns:52px 1fr auto;
+  gap:12px;
+  align-items:center;
+  padding:12px 14px;
+  border-radius:14px;
+  background:linear-gradient(110deg,#1a2a20,#0f1a13);
+  border:1px solid var(--line);
+  transition:border-color .2s,transform .15s;
+  cursor:pointer;
+}
+.lb-row:hover{border-color:#7d9272;transform:translateX(-3px)}
+.lb-row:active{transform:translateX(-1px)}
+.lb-row.is-me{
+  border-color:var(--gold2);
+  background:linear-gradient(110deg,#2a3d2c,#1a2418);
+  box-shadow:0 0 0 1px #c9a96a33,inset 0 1px #ffffff10;
+}
+.lb-rank{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:17px;
+  color:var(--gold2);
+  text-align:center;
+}
+.lb-row.is-me .lb-rank{color:#ead5a0}
+.lb-name{
+  font-family:"Cairo",sans-serif;
+  font-weight:800;
+  font-size:13px;
+  color:#f0ebd9;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.lb-meta{
+  font-size:10px;color:var(--muted);margin-top:4px;
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.lb-meta span{display:inline-flex;align-items:center;gap:3px}
+.lb-meta svg{width:10px;height:10px;color:var(--gold2)}
+.lb-score{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:18px;
+  color:var(--gold2);
+  text-align:left;
+}
+.lb-score small{display:block;font-size:8.5px;color:var(--muted);font-weight:600;margin-top:2px;letter-spacing:.5px}
+
+/* ═══ My Rank (Sticky Bottom) ═══ */
+.my-rank{
+  position:fixed;
+  left:50%;
+  bottom:calc(12px + env(safe-area-inset-bottom));
+  transform:translateX(-50%);
+  width:min(calc(100% - 22px),560px);
+  z-index:40;
+  border-radius:20px;
+  border:1.5px solid var(--gold);
+  background:linear-gradient(135deg,#3a2f18,#1a1408);
+  box-shadow:0 16px 50px #000b,0 0 0 1px #c9a96a33,inset 0 1px #ffffff1a;
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  padding:12px 16px;
+  animation:lbSlideUp .5s ease;
+}
+@keyframes lbSlideUp{from{opacity:0;transform:translate(-50%,20px)}to{opacity:1;transform:translate(-50%,0)}}
+.my-rank-inner{display:flex;align-items:center;gap:12px}
+.my-rank-badge{
+  width:44px;height:44px;border-radius:50%;
+  background:radial-gradient(circle,#c9a96a30,#c9a96a08);
+  border:1.5px solid var(--gold2);
+  display:grid;place-items:center;
+  color:var(--gold2);
+  flex-shrink:0;
+  box-shadow:0 0 20px #c9a96a44;
+}
+.my-rank-badge svg{width:20px;height:20px}
+.my-rank-info{flex:1;min-width:0}
+.my-rank-label{font-size:9px;color:var(--muted);letter-spacing:1.2px;font-weight:800;font-family:"Cairo",sans-serif}
+.my-rank-name{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:14px;
+  color:#f0ebd9;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  margin-top:2px;
+}
+.my-rank-stats{text-align:left;flex-shrink:0}
+.my-rank-pos{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:11px;
+  color:var(--gold2);
+  letter-spacing:.5px;
+}
+.my-rank-score{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:22px;
+  color:#ead5a0;
+  line-height:1;
+  margin-top:2px;
+}
+
+/* ═══ Player Profile Modal ═══ */
+.profile-header{text-align:center;margin-bottom:18px;position:relative}
+.profile-avatar{
+  width:82px;height:82px;border-radius:50%;
+  background:radial-gradient(circle,#c9a96a25,#c9a96a08);
+  border:1.5px solid var(--gold);
+  display:grid;place-items:center;
+  margin:0 auto 12px;
+  color:var(--gold2);
+  box-shadow:0 0 30px #c9a96a33;
+}
+.profile-avatar svg{width:38px;height:38px;stroke-width:1.4}
+.profile-name{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;font-size:22px;
+  color:#f0ebd9;letter-spacing:-.4px;
+}
+.profile-badge{
+  display:inline-block;
+  margin-top:6px;
+  font-size:10px;font-weight:800;
+  padding:3px 10px;border-radius:99px;
+  background:linear-gradient(135deg,#ead5a0,#b38c4d);
+  color:#1a1408;
+  font-family:"Cairo",sans-serif;
+  letter-spacing:.5px;
+}
+.profile-rank{
+  position:absolute;top:0;left:0;
+  font-family:"Cairo",sans-serif;
+  font-weight:900;font-size:14px;
+  color:var(--gold2);
+  background:#1a281f;
+  border:1px solid #c9a96a55;
+  padding:4px 11px;border-radius:8px;
+}
+
+.profile-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin-bottom:8px;
+}
+.profile-stat{
+  padding:11px 8px;
+  border:1px solid #ffffff10;
+  border-radius:12px;
+  background:#0d171170;
+  text-align:center;
+}
+.profile-stat strong{
+  display:block;
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:17px;
+  color:var(--gold2);
+  line-height:1;
+  margin-bottom:5px;
+}
+.profile-stat span{
+  font-size:9.5px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.profile-section-title{
+  display:flex;align-items:center;gap:8px;
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:13px;
+  color:var(--gold2);
+  margin:20px 0 10px;
+  padding-bottom:8px;
+  border-bottom:1px solid #ffffff10;
+}
+.profile-section-title svg{width:16px;height:16px}
+
+.profile-case-list{
+  display:flex;flex-direction:column;gap:8px;
+  max-height:340px;overflow-y:auto;
+  padding-right:4px;
+}
+.profile-case-list::-webkit-scrollbar{width:5px}
+.profile-case-list::-webkit-scrollbar-thumb{background:#354a3b;border-radius:4px}
+
+.profile-case-row{
+  display:grid;
+  grid-template-columns:32px 1fr auto;
+  gap:10px;align-items:center;
+  padding:11px 12px;
+  border-radius:12px;
+  border:1px solid #ffffff0d;
+  background:#0d171170;
+  transition:border-color .2s;
+}
+.profile-case-row:hover{border-color:#7d9272}
+.profile-case-icon{display:grid;place-items:center}
+.profile-case-icon svg{width:22px;height:22px;stroke-width:1.6}
+.profile-case-info{min-width:0}
+.profile-case-title{
+  font-family:"Cairo",sans-serif;
+  font-weight:800;
+  font-size:12.5px;
+  color:#f0ebd9;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.profile-case-meta{
+  display:flex;gap:9px;flex-wrap:wrap;
+  font-size:10px;
+  color:var(--muted);
+  margin-top:5px;
+}
+.profile-case-meta span{display:inline-flex;align-items:center;gap:3px;font-weight:600}
+.profile-case-meta svg{width:11px;height:11px;color:var(--gold2)}
+.profile-case-score{
+  font-family:"Cairo",sans-serif;
+  font-weight:900;
+  font-size:16px;
+  color:var(--gold2);
+  text-align:left;
+}
+.profile-case-score small{
+  display:block;font-size:8.5px;color:var(--muted);
+  font-weight:700;margin-top:1px;letter-spacing:.5px;
+}
+
+/* Responsive */
+@media(max-width:420px){
+  .podium-card{padding:14px 8px 12px}
+  .medal{width:48px;height:48px;margin-bottom:10px}
+  .medal svg{width:24px;height:24px}
+  .podium-name{font-size:11.5px}
+  .rank-1 .podium-name{font-size:13.5px}
+  .podium-score{font-size:19px}
+  .rank-1 .podium-score{font-size:24px}
+  .podium-stats{gap:6px}
+  .podium-stat{font-size:9px}
+  .lb-name{font-size:12px}
+  .lb-score{font-size:16px}
+  .lb-meta{font-size:9px;gap:7px}
+  .my-rank{padding:10px 12px}
+  .my-rank-badge{width:38px;height:38px}
+  .my-rank-badge svg{width:18px;height:18px}
+  .my-rank-score{font-size:19px}
+  .profile-avatar{width:66px;height:66px}
+  .profile-avatar svg{width:30px;height:30px}
+  .profile-name{font-size:19px}
+  .profile-case-list{max-height:260px}
+  .profile-stat strong{font-size:15px}
+}
+#app.hide-topbar .topbar{display:none!important}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">
+          <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3d5740"/><stop offset="1" stop-color="#182619"/></linearGradient>
+              <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ead5a0"/><stop offset="1" stop-color="#b38c4d"/></linearGradient>
+            </defs>
+            <circle cx="32" cy="32" r="30" fill="url(#lg1)" stroke="url(#lg2)" stroke-width="1.5"/>
+            <g fill="none" stroke="url(#lg2)" stroke-width="1.6" stroke-linecap="round">
+              <path d="M22 26c0-6 4-10 10-10s10 4 10 10"/>
+              <path d="M26 32c0-3 2.5-6 6-6s6 3 6 6"/>
+              <path d="M30 36c0-1 1-2 2-2s2 1 2 2"/>
+              <path d="M22 36v4c0 3 1.5 5 4 6"/>
+              <path d="M42 36v4c0 3-1.5 5-4 6"/>
+              <path d="M32 40v6"/>
+            </g>
+            <circle cx="44" cy="44" r="8" fill="#0d1712" stroke="url(#lg2)" stroke-width="1.6"/>
+            <path d="M49 49l6 6" stroke="url(#lg2)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-title">خيوط الجريمة</div>
+          <div class="brand-sub">كل خيط يقودك إلى الحقيقة</div>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button class="hint-btn-top hidden" id="hintBtn" aria-label="تلميح" title="اطلب تلميحًا">
+          <i data-lucide="lightbulb"></i>
+          <span class="hint-badge pulse" id="hintBadge">3</span>
+        </button>
+        <button class="icon-btn" id="soundToggle" aria-label="الصوت"><i data-lucide="volume-2"></i></button>
+        <button class="icon-btn" id="settingsBtn" aria-label="قاعة الشرف" title="قاعة الشرف" style="background:linear-gradient(135deg,#2a3238,#111820);border-color:#c8d0d666;color:#d8e0e6;box-shadow:0 4px 14px #a8b0b622,inset 0 1px #ffffff10"><i data-lucide="trophy"></i></button>
+      </div>
+    </header>
+    <main>
+      <!-- شاشة الترحيب -->
+      <section class="screen active" id="landingScreen">
+        <article class="hero">
+          <div class="hero-stamp"><span class="stamp-line"></span> ARCHIVE · CONFIDENTIAL</div>
+          <h1 class="display">الحقيقة لا تختبئ.<br>إنها تنتظر من يربط الخيوط.</h1>
+          <p class="lead">أربعة مشتبه بهم. روايات متضاربة. أسرار لم تُكشف بعد. افتح ملف القضية، استجوب أصحابها، واربط الأدلة قبل أن تصدر حكمك.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="openLibraryBtn"><i data-lucide="library"></i> افتح مكتبة القضايا</button>
+            <button class="btn btn-secondary" id="randomCaseBtn"><i data-lucide="shuffle"></i> قضية عشوائية</button>
+            <button class="btn btn-secondary" id="resumeBtn"><i data-lucide="history"></i> استئناف التحقيق المحفوظ</button>
+          </div>
+          <p class="hero-note" id="landingStatus">كل قرار يترك أثرًا. لا تتعجل الحقيقة.</p>
+        </article>
+        <div class="feature-grid">
+          <article class="feature"><div class="feature-icon"><i data-lucide="scan-search"></i></div><h3>اقرأ ما بين السطور</h3><p>استمع للروايات، واكتشف ما لا يُقال صراحةً.</p></article>
+          <article class="feature"><div class="feature-icon"><i data-lucide="git-branch"></i></div><h3>اربط الخيوط</h3><p>كل تفصيل قد يغيّر معنى الدليل السابق.</p></article>
+          <article class="feature"><div class="feature-icon"><i data-lucide="scale"></i></div><h3>أصدر حكمك</h3><p>اختر المتهم وواجه الحقيقة بما جمعته.</p></article>
+        </div>
+      </section>
+
+      <!-- شاشة المكتبة -->
+      <section class="screen" id="libraryScreen">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+          <button class="back-btn" data-back="landingScreen" aria-label="رجوع"><i data-lucide="arrow-right"></i></button>
+          <div style="flex:1">
+            <div class="eyebrow">CASE LIBRARY</div>
+            <h1 class="library-title">مكتبة القضايا</h1>
+            <p style="font-size:12px;color:var(--muted);margin:3px 0 0" id="libraryCount">يتم التحميل…</p>
+          </div>
+          <button class="icon-btn" id="refreshLibraryBtn" aria-label="تحديث"><i data-lucide="refresh-cw"></i></button>
+        </div>
+        <div class="library-filters" id="typeFilters">
+          <button class="filter-chip active" data-type="all"><i data-lucide="layers"></i> الكل</button>
+        </div>
+        <div class="library-filters" id="difficultyFilters">
+          <button class="filter-chip active" data-diff="all">كل الصعوبات</button>
+          <button class="filter-chip" data-diff="easy"><i data-lucide="feather"></i> سهلة</button>
+          <button class="filter-chip" data-diff="medium"><i data-lucide="target"></i> متوسطة</button>
+          <button class="filter-chip" data-diff="hard"><i data-lucide="flame"></i> صعبة</button>
+        </div>
+        <div class="library-grid" id="libraryGrid"></div>
+        <div class="empty-state hidden" id="libraryEmpty" style="margin-top:16px"><i data-lucide="search-x"></i><br>لا توجد قضايا تطابق الفلتر.</div>
+      </section>
+
+      <!-- شاشة القضية -->
+      <section class="screen" id="caseScreen">
+        <div class="section-head">
+          <div><div class="eyebrow">CASE DOSSIER</div><h2>ملف القضية</h2><p>المعلومات المؤكدة وما زال يحتاج إلى تفسير.</p></div>
+          <button class="btn btn-secondary btn-small" id="closeCaseBtn"><i data-lucide="x-circle"></i> إغلاق</button>
+        </div>
+        <article class="case-banner">
+          <div class="eyebrow">ملف سري · <span id="caseCode">CASE—001</span></div>
+          <h1 id="caseTitle">عنوان القضية</h1>
+          <p id="caseStory" class="story"></p>
+          <div class="case-meta">
+            <span class="chip"><i data-lucide="map-pin"></i><span id="caseLocation">—</span></span>
+            <span class="chip"><i data-lucide="user-x"></i><span id="caseVictim">—</span></span>
+            <span class="chip"><i data-lucide="calendar"></i><span id="caseDate">—</span></span>
+            <span class="chip"><i data-lucide="cloud"></i><span id="caseWeather">—</span></span>
+          </div>
+        </article>
+        <div class="panel">
+          <h3 class="panel-title"><i data-lucide="clipboard-list"></i> بطاقة الوقائع</h3>
+          <div class="fact-grid">
+            <div class="fact"><div class="fact-label"><i data-lucide="user-x"></i>الضحية</div><div class="fact-value" id="victimDetail">—</div></div>
+            <div class="fact"><div class="fact-label"><i data-lucide="map-pin"></i>مسرح الجريمة</div><div class="fact-value" id="locationDetail">—</div></div>
+            <div class="fact"><div class="fact-label"><i data-lucide="clock"></i>وقت الحادثة</div><div class="fact-value" id="timeDetail">—</div></div>
+            <div class="fact"><div class="fact-label"><i data-lucide="calendar"></i>التاريخ</div><div class="fact-value" id="dateDetail">—</div></div>
+          </div>
+        </div>
+        <div class="panel" id="timelinePanel">
+          <h3 class="panel-title"><i data-lucide="history"></i> التسلسل الزمني</h3>
+          <div class="timeline-list" id="timelineList"></div>
+        </div>
+        <div class="panel" id="cluesPanel">
+          <h3 class="panel-title"><i data-lucide="search-check"></i> أدلة مسرح الجريمة</h3>
+          <div class="clue-list" id="cluesList"></div>
+        </div>
+        <div class="panel">
+          <h3 class="panel-title"><i data-lucide="activity"></i> تقدم التحقيق</h3>
+          <div class="stat-row">
+            <div class="stat"><strong id="statQuestions">0</strong><span>سؤالًا</span></div>
+            <div class="stat"><strong id="statEvidence">0</strong><span>دليلًا</span></div>
+            <div class="stat"><strong id="statSecrets">0</strong><span>سرًا مكشوفًا</span></div>
+          </div>
+          <div class="tension-bar" style="margin-top:14px"><span id="caseProgress" style="width:0%"></span></div>
+          <p class="hero-note" id="progressHint">ابدأ بالاستجواب لكشف أول خيط.</p>
+        </div>
+        <button class="btn btn-primary btn-block" id="gotoSuspectsBtn"><i data-lucide="users-round"></i> استعراض المشتبه بهم</button>
+      </section>
+
+      <!-- شاشة المشتبه بهم -->
+      <section class="screen" id="suspectsScreen">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+          <button class="back-btn" data-back="caseScreen" aria-label="رجوع"><i data-lucide="arrow-right"></i></button>
+          <div><h1 style="font-size:23px;margin:0;font-family:Cairo,sans-serif;font-weight:900">ملفات المشتبه بهم</h1><p style="font-size:12px;color:var(--muted);margin:3px 0 0">كل رواية تخفي شيئًا.</p></div>
+        </div>
+        <div class="suspect-grid" id="suspectsGridFull"></div>
+      </section>
+
+      <!-- شاشة الاستجواب -->
+      <section class="screen" id="interrogateScreen">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+          <button class="back-btn" data-back="caseScreen" aria-label="رجوع"><i data-lucide="arrow-right"></i></button>
+          <div><h1 style="font-size:23px;margin:0;font-family:Cairo,sans-serif;font-weight:900">غرفة الاستجواب</h1><p style="font-size:12px;color:var(--muted);margin:3px 0 0">اسأل بدقة. الصمت جزء من الإجابة.</p></div>
+        </div>
+        <div class="panel" id="interrogateChoicesPanel">
+          <div class="section-head"><div><div class="eyebrow">INTERROGATION ROOM</div><h2>اختر من ستواجهه</h2></div><span class="chip">جلسة سرية</span></div>
+          <div class="suspect-grid" id="interrogateChoices"></div>
+        </div>
+        <div class="room-scene hidden" id="interrogationStage">
+          <div class="room-wall"></div>
+          <div class="room-label"><span><span class="live-dot"></span> غرفة رقم 04 · تسجيل الجلسة</span><span id="sessionLabel">TOKEN · ACTIVE</span></div>
+          <div class="suspect-stage">
+            <div class="suspect-portrait" id="activePortrait"><div class="p-skel"><i data-lucide="user-round"></i></div></div>
+            <div class="suspect-info">
+              <div class="eyebrow">المشتبه به قيد الاستجواب</div>
+              <h2 id="activeName">—</h2>
+              <p id="activeOccupation">—</p>
+              <div class="emotion-badge" id="emotionBadge"><span class="dot"></span><span>هادئ</span></div>
+              <div class="secrets-mini" id="secretsProgress"></div>
+            </div>
+          </div>
+          <div class="tension">
+            <div class="tension-head"><span>مستوى التوتر</span><strong><span id="tensionValue">20</span>%</strong></div>
+            <div class="tension-bar"><span id="tensionBar" style="width:20%"></span></div>
+          </div>
+          <div class="chat-wrap">
+            <div class="section-head" style="margin-bottom:10px">
+              <div><h2 style="font-size:15px">محضر الحوار</h2><p id="chatCount">لا رسائل بعد.</p></div>
+              <button class="btn btn-secondary btn-small" id="readLastBtn"><i data-lucide="volume-2"></i> قراءة الرد</button>
+            </div>
+            <div class="chat-log" id="chatLog"><div class="chat-empty">ابدأ بسؤال مفتوح.</div></div>
+            <div class="quick-questions">
+              <button data-question="أين كنت وقت وقوع الجريمة؟">أين كنت وقت الجريمة؟</button>
+              <button data-question="ما علاقتك بالضحية؟">علاقتك بالضحية؟</button>
+              <button data-question="هناك تناقض في روايتك، كيف تفسر ذلك؟">واجهه بتناقض</button>
+              <button data-question="ما الأمر الذي تخفيه عن المحققين؟">ما الذي تخفيه؟</button>
+            </div>
+            <div class="composer">
+              <button class="icon-btn" id="micBtn" aria-label="إملاء صوتي"><i data-lucide="mic"></i></button>
+              <textarea id="questionInput" rows="1" placeholder="اكتب سؤالك هنا…" autocomplete="off"></textarea>
+              <button class="send-btn" id="sendQuestionBtn" aria-label="إرسال"><i data-lucide="send"></i></button>
+            </div>
+            <div class="hero-note" id="micStatus" style="font-size:10.5px;margin-top:8px">يمكنك الكتابة أو استخدام الإملاء الصوتي.</div>
+          </div>
+        </div>
+        <div class="panel" id="secretsPanel">
+          <h3 class="panel-title"><i data-lucide="lock-keyhole"></i> الأسرار التي كُشفت</h3>
+          <div id="secretList"><div class="empty-state">الأسرار تُكشف عبر الحوار.</div></div>
+        </div>
+      </section>
+
+      <!-- شاشة الأدلة -->
+      <section class="screen" id="evidenceScreen">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+          <button class="back-btn" data-back="caseScreen" aria-label="رجوع"><i data-lucide="arrow-right"></i></button>
+          <div><h1 style="font-size:23px;margin:0;font-family:Cairo,sans-serif;font-weight:900">لوحة الأدلة</h1><p style="font-size:12px;color:var(--muted);margin:3px 0 0">ضع كل قطعة في سياقها.</p></div>
+        </div>
+        <div class="panel">
+          <div class="section-head"><div><div class="eyebrow">EVIDENCE ROOM</div><h2>الخيوط المكتشفة</h2><p id="evidenceSummary">لم يُسجّل دليل بعد.</p></div><span class="chip" id="evidenceTotal">0 أدلة</span></div>
+          <div class="evidence-list" id="evidenceList"><div class="empty-state"><i data-lucide="layers-3"></i><br>اللوحة فارغة.</div></div>
+        </div>
+        <div class="panel">
+          <h3 class="panel-title"><i data-lucide="brain"></i> ملاحظات المحقق</h3>
+          <div class="field">
+            <label for="investigatorNotes">اكتب فرضيتك أو الروابط التي لاحظتها</label>
+            <textarea id="investigatorNotes" placeholder="ما التناقض الأهم؟ من كان لديه دافع؟" style="width:100%;padding:12px 13px;border:1px solid var(--line2);border-radius:12px;background:#0d1712;color:var(--cream);min-height:100px;resize:vertical;font-family:inherit;font-size:13px"></textarea>
+          </div>
+          <button class="btn btn-secondary btn-block" id="saveNotesBtn"><i data-lucide="save"></i> حفظ الملاحظات</button>
+        </div>
+      </section>
+
+      <!-- شاشة الاتهام -->
+      <section class="screen" id="verdictScreen">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+          <button class="back-btn" data-back="evidenceScreen" aria-label="رجوع"><i data-lucide="arrow-right"></i></button>
+          <div><h1 style="font-size:23px;margin:0;font-family:Cairo,sans-serif;font-weight:900">قاعة إصدار الحكم</h1><p style="font-size:12px;color:var(--muted);margin:3px 0 0">الحقيقة فرضية تدعمها الأدلة.</p></div>
+        </div>
+        <div class="panel">
+          <div style="width:88px;height:88px;border-radius:50%;border:1.5px solid var(--gold);display:grid;place-items:center;color:var(--gold2);margin:0 auto 18px"><i data-lucide="scale" style="width:38px;height:38px;stroke-width:1.4"></i></div>
+          <div class="section-head"><div><div class="eyebrow">FINAL ACCUSATION</div><h2>من تتهم؟</h2></div></div>
+          <div class="accuse-grid" id="accuseGrid"></div>
+          <div class="field">
+            <label for="verdictReason">حيثيات الاتهام (اختياري)</label>
+            <textarea id="verdictReason" placeholder="اربط الدافع والفرصة والتناقضات…" style="width:100%;padding:12px 13px;border:1px solid var(--line2);border-radius:12px;background:#0d1712;color:var(--cream);min-height:90px;resize:vertical;font-family:inherit;font-size:13px"></textarea>
+          </div>
+          <button class="btn btn-gold btn-block" id="submitVerdictBtn"><i data-lucide="stamp"></i> ختم الحكم وكشف الحقيقة</button>
+        </div>
+      </section>
+
+      <!-- شاشة النتيجة -->
+      <section class="screen" id="resultScreen">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px">
+          <button class="back-btn" data-back="caseScreen" aria-label="رجوع"><i data-lucide="arrow-right"></i></button>
+          <div><h1 style="font-size:23px;margin:0;font-family:Cairo,sans-serif;font-weight:900">تقرير القضية</h1><p style="font-size:12px;color:var(--muted);margin:3px 0 0">النتيجة الرسمية.</p></div>
+        </div>
+        <nav class="tabs-nav" role="tablist">
+          <button class="tab-btn active" data-tab="tab-result">النتيجة</button>
+          <button class="tab-btn" data-tab="tab-stats">إحصائياتك</button>
+          <button class="tab-btn" data-tab="tab-solution">الحل الكامل</button>
+          <button class="tab-btn" data-tab="tab-share">مشاركة</button>
+        </nav>
+        <div class="tab-content active" id="tab-result"></div>
+        <div class="tab-content" id="tab-stats"></div>
+        <div class="tab-content" id="tab-solution"></div>
+        <div class="tab-content" id="tab-share"></div>
+      </section>
+
+<!-- شاشة المتصدرين -->
+<section class="screen" id="leaderboardScreen">
+  <div class="lb-header">
+    <button class="back-btn" data-back="landingScreen" aria-label="رجوع">
+      <i data-lucide="arrow-right"></i>
+    </button>
+    <div style="flex:1">
+      <div class="eyebrow">HALL OF FAME</div>
+      <h1 class="lb-title">قاعة الشرف</h1>
+      <p class="lb-subtitle" id="lbSubtitle">أفضل المحققين</p>
+    </div>
+    <button class="icon-btn" id="refreshLeaderboardBtn" aria-label="تحديث">
+      <i data-lucide="refresh-cw"></i>
+    </button>
+  </div>
+
+  <!-- منصة التتويج (Top 3) -->
+  <div class="podium" id="podium"></div>
+
+  <!-- قائمة البقية -->
+  <div class="lb-list" id="lbList"></div>
+
+  <!-- حالة فارغة -->
+  <div class="empty-state hidden" id="lbEmpty" style="margin-top:20px">
+    <i data-lucide="users"></i>
+    <br>لا يوجد لاعبون بعد. كن الأول!
+  </div>
+
+  <!-- بطاقة اللاعب الثابتة -->
+  <div class="my-rank hidden" id="myRank">
+    <div class="my-rank-inner">
+      <div class="my-rank-badge">
+        <i data-lucide="user-round"></i>
+      </div>
+      <div class="my-rank-info">
+        <div class="my-rank-label">أنت</div>
+        <div class="my-rank-name" id="myRankName">—</div>
+      </div>
+      <div class="my-rank-stats">
+        <div class="my-rank-pos" id="myRankPos">#—</div>
+        <div class="my-rank-score" id="myRankScore">0</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+      <!-- شاشة الختام -->
+      <section class="screen" id="conclusionScreen">
+        <div class="conclusion-hero">
+          <div class="conclusion-seal"><i data-lucide="feather" style="width:48px;height:48px;stroke-width:1.4"></i></div>
+          <div class="eyebrow">CASE ARCHIVED</div>
+          <h1 class="display">أُغلق الملف.</h1>
+          <p>شكرًا لك على هذا التحقيق. الحقيقة التي وصلت إليها ستبقى في سجلات المحققين.</p>
+        </div>
+        <button class="btn btn-primary btn-block" id="conclusionNewCase"><i data-lucide="library"></i> العودة إلى المكتبة</button>
+        <button class="btn btn-secondary btn-block" id="conclusionHome" style="margin-top:9px"><i data-lucide="home"></i> الرئيسية</button>
+      </section>
+    </main>
+    <footer class="footer">
+      <div><strong>خيوط الجريمة</strong><br>كل خيط يقودك إلى الحقيقة</div>
+      <div style="text-align:left">
+        <div class="dev-line">تطوير: <strong style="color:var(--gold2)">حسن المحمد</strong></div>
+        <div style="margin-top:3px"><span id="copyrightYear"></span> · جميع الحقوق محفوظة</div>
+      </div>
+    </footer>
+  </div>
+  <div class="dock-space hidden" id="dockSpace"></div>
+  <nav class="bottom-dock" id="bottomDock" aria-label="مراحل التحقيق">
+    <button class="dock-btn" data-screen="verdictScreen"><i data-lucide="scale"></i><span>الحكم</span></button>
+    <button class="dock-btn" data-screen="interrogateScreen"><i data-lucide="messages-square"></i><span>الاستجواب</span></button>
+    <button class="dock-btn dock-center active" data-screen="caseScreen"><i data-lucide="folder-open"></i><span>القضية</span></button>
+    <button class="dock-btn" data-screen="suspectsScreen"><i data-lucide="users-round"></i><span>المشتبهون</span></button>
+    <button class="dock-btn" data-screen="evidenceScreen"><i data-lucide="layers-3"></i><span>الأدلة</span></button>
+  </nav>
+</div>
+<div class="toast-stack" id="toastStack" aria-live="polite"></div>
+<div class="loading-screen hidden" id="loadingScreen"><div class="loader-card"><div class="loader-orbit"><i data-lucide="fingerprint"></i></div><h2 id="loadingTitle">يجري فتح الملف</h2><p id="loadingText">نجمع الوقائع…</p><div class="tension-bar" style="margin-top:16px"><span id="loadingProgress" style="width:35%"></span></div></div></div>
+<div class="modal-backdrop hidden" id="modalBackdrop"><div class="modal" id="modalContent" role="dialog" aria-modal="true"></div></div>
+
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const STORAGE_KEY='khuyut_session_v9';
+const SETTINGS_KEY='khuyut_settings_v5';
+const IMG_CACHE_KEY='khuyut_imgcache_v4';
+
+const EMOTIONS={calm:'هادئ',nervous:'متوتر',defensive:'مدافع',angry:'غاضب',breaking:'منهار',confessed:'معترف'};
+const EVIDENCE_LABELS={physical:'دليل مادي',witness:'شهادة',contradiction:'تناقض',motive:'دافع',confession:'اعتراف',secret:'سر',accusation:'اتهام',general:'دليل',forensic:'دليل جنائي',biological:'دليل بيولوجي',circumstantial:'قرينة'};
+const EVIDENCE_ICONS={physical:'fingerprint',witness:'eye',contradiction:'git-compare-arrows',motive:'target',confession:'message-circle',secret:'lock-keyhole',accusation:'scale',general:'file-search',forensic:'microscope',biological:'dna',circumstantial:'link'};
+const DIFFICULTY_LABELS={easy:'سهلة',medium:'متوسطة',hard:'صعبة'};
+const DIFFICULTY_ICONS={easy:'feather',medium:'target',hard:'flame'};
+
+const defaults={baseUrl:'https://method-bathroom-tue-guys.trycloudflare.com',listPath:'/webhook/library/list',casePath:'/webhook/library/case',randomPath:'/webhook/library/random',interrogatePath:'/webhook/interrogate',voice:true,autoRead:true,autoSave:true,timeoutMs:90000};
+let settings={...defaults,...safeParse(localStorage.getItem(SETTINGS_KEY),{})};
+let state=blankState();
+let libraryCache={cases:[]};
+let currentFilter={type:'all',difficulty:'all'};
+let recognition=null,recognitionActive=false,voiceBaseText='',requestBusy=false;
+let imageCache=safeParse(localStorage.getItem(IMG_CACHE_KEY),{});
+
+function blankState(){return {caseData:null,sessionId:null,startedAt:null,finishedAt:null,activeSuspectId:null,conversations:{},evidence:[],questions:0,maxTension:0,secrets:[],selectedAccused:null,verdict:null,lastReplyBySuspect:{},hintsUsed:0}}
+function safeParse(s,f){try{return s?JSON.parse(s):f}catch{return f}}
+function uuid(){if(crypto&&crypto.randomUUID)return crypto.randomUUID();return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return(c==='x'?r:(r&3|8)).toString(16)})}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function icon(n,cls){return `<i data-lucide="${esc(n)}"${cls?` class="${cls}"`:''}></i>`}
+function refreshIcons(){if(window.lucide)lucide.createIcons()}
+function parseJson(v,fb){if(v==null)return fb;if(typeof v==='object')return v;if(typeof v==='string'){try{const p=JSON.parse(v);return p??fb}catch{return fb}}return fb}
+function fmtDuration(ms){const t=Math.max(0,Math.floor(ms/1000));const m=Math.floor(t/60);const s=t%60;return `${m}د ${String(s).padStart(2,'0')}ث`}
+
+function toast(msg,type='success',dur=3200){
+  const el=document.createElement('div');
+  el.className='toast '+(type==='error'?'error':type==='info'?'info':'');
+  el.innerHTML=`${icon(type==='error'?'circle-alert':type==='info'?'info':'check-circle-2')}<span>${esc(msg)}</span>`;
+  $('toastStack').append(el);refreshIcons();
+  setTimeout(()=>{el.style.opacity='0';el.style.transform='translateY(-8px)';setTimeout(()=>el.remove(),250)},dur);
+}
+function setLoading(on,title='يجري فتح الملف',text='نجمع الوقائع…'){
+  $('loadingTitle').textContent=title;$('loadingText').textContent=text;
+  $('loadingScreen').classList.toggle('hidden',!on);
+  if(on){$('loadingProgress').style.width='35%';setTimeout(()=>{if(!$('loadingScreen').classList.contains('hidden'))$('loadingProgress').style.width='78%'},500)}
+  refreshIcons();
+}
+function showModal(c){$('modalContent').innerHTML=c;$('modalBackdrop').classList.remove('hidden');refreshIcons()}
+function closeModal(){$('modalBackdrop').classList.add('hidden')}
+
+async function apiCall(endpoint,body,method='POST'){
+  const base=settings.baseUrl.replace(/\/+$/,'');
+  const url=endpoint.startsWith('http')?endpoint:base+(endpoint.startsWith('/')?endpoint:'/'+endpoint);
+  const controller=new AbortController();
+  const t=setTimeout(()=>controller.abort(),settings.timeoutMs);
+  let response;
+  try{
+    const opts={method,headers:{'Content-Type':'application/json'},mode:'cors',signal:controller.signal};
+    if(method!=='GET')opts.body=JSON.stringify(body||{});
+    response=await fetch(url,opts);
+  }catch(e){
+    clearTimeout(t);
+    if(e.name==='AbortError')throw new Error('انتهت مهلة الاتصال.');
+    throw new Error('تعذّر الوصول للخادم.');
+  }
+  clearTimeout(t);
+  let data;
+  try{data=await response.json()}catch{throw new Error(`استجابة غير صالحة (HTTP ${response.status}).`)}
+  if(!response.ok)throw new Error(data.message||data.error||`فشل (HTTP ${response.status})`);
+  return data;
+}
+
+function setScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.toggle('active',s.id===id));
+  document.querySelectorAll('.dock-btn').forEach(b=>b.classList.toggle('active',b.dataset.screen===id));
+  const hideDockOn=['landingScreen','libraryScreen','resultScreen','conclusionScreen'];
+  $('app').classList.toggle('hide-dock',hideDockOn.includes(id));
+ $('app').classList.toggle('hide-topbar',id==='leaderboardScreen'||id==='libraryScreen');
+ if(id==='caseScreen')renderCaseScreen();
+  if(id==='suspectsScreen')renderSuspectsFull();
+  if(id==='interrogateScreen')renderInterrogation();
+  if(id==='evidenceScreen')renderEvidenceScreen();
+  if(id==='verdictScreen')renderAccusation();
+  if(id==='resultScreen')renderResultScreen();
+  window.scrollTo({top:0,behavior:'smooth'});
+  updateHintButton();
+  refreshIcons();
+}
+function goHome(){
+  $('app').classList.remove('game-active','hide-dock');
+  $('dockSpace').classList.add('hidden');
+  setScreen('landingScreen');
+  updateHintButton();
+}
+function activateGame(){
+  $('app').classList.add('game-active');
+  $('dockSpace').classList.remove('hidden');
+  setScreen('caseScreen');
+  saveState(true);
+  updateHintButton();
+}
+function updateHintButton(){
+  const btn=$('hintBtn');
+  const badge=$('hintBadge');
+  if(!btn||!badge)return;
+  const hasActive=hasCase()&&!state.verdict;
+  const left=Math.max(0,3-(state.hintsUsed||0));
+  btn.classList.toggle('hidden',!hasActive);
+  btn.disabled=left<=0;
+  badge.textContent=left;
+  badge.classList.toggle('pulse',left>0&&left<=2);
+}
+
+let saveTimer=null;
+function saveState(silent=true){
+  if(!settings.autoSave)return;
+  clearTimeout(saveTimer);
+  saveTimer=setTimeout(()=>{try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state))}catch(e){}},350);
+}
+function hasCase(){return !!(state.caseData&&Array.isArray(state.caseData.suspects))}
+
+/* ═══════════ Library ═══════════ */
+async function loadLibrary(){
+  setLoading(true,'يُفتح الأرشيف','نجمع ملفات القضايا…');
+  try{
+    const data=await apiCall(settings.listPath,null,'GET');
+    libraryCache.cases=data.cases||[];
+    $('libraryCount').textContent=`${libraryCache.cases.length} قضية متاحة`;
+    renderTypeFilters();
+    renderLibrary();
+    setLoading(false);
+    setScreen('libraryScreen');
+  }catch(e){
+    setLoading(false);
+    toast(e.message,'error',6500);
+  }
+}
+function renderTypeFilters(){
+  const types=new Set();
+  libraryCache.cases.forEach(c=>{if(c.crime_type)types.add(c.crime_type)});
+  const container=$('typeFilters');
+  let html=`<button class="filter-chip ${currentFilter.type==='all'?'active':''}" data-type="all">${icon('layers')} الكل</button>`;
+  [...types].sort().forEach(t=>{
+    html+=`<button class="filter-chip ${currentFilter.type===t?'active':''}" data-type="${esc(t)}">${esc(t)}</button>`;
+  });
+  container.innerHTML=html;
+  container.querySelectorAll('[data-type]').forEach(b=>b.onclick=()=>{
+    currentFilter.type=b.dataset.type;
+    renderTypeFilters();
+    renderLibrary();
+  });
+  refreshIcons();
+}
+function renderLibrary(){
+  const grid=$('libraryGrid');
+  const empty=$('libraryEmpty');
+  let cases=libraryCache.cases;
+  if(currentFilter.type!=='all')cases=cases.filter(c=>c.crime_type===currentFilter.type);
+  if(currentFilter.difficulty!=='all')cases=cases.filter(c=>c.difficulty===currentFilter.difficulty);
+  
+  if(!cases.length){
+    grid.innerHTML='';
+    empty.classList.remove('hidden');
+    refreshIcons();
+    return;
+  }
+  empty.classList.add('hidden');
+  grid.innerHTML=cases.map(c=>caseCardHTML(c)).join('');
+  grid.querySelectorAll('[data-case-play]').forEach(b=>b.onclick=()=>loadCaseFromLibrary(b.dataset.casePlay));
+  refreshIcons();
+}
+function caseCardHTML(c){
+  const cover=c.cover_image_url||'';
+  const diff=c.difficulty||'medium';
+  const diffLabel=DIFFICULTY_LABELS[diff]||diff;
+  const diffIcon=DIFFICULTY_ICONS[diff]||'circle';
+  const coverHTML=cover?`<img src="${esc(cover)}" alt="${esc(c.title)}" loading="lazy" onload="this.classList.add('loaded');this.previousElementSibling.classList.add('done')" onerror="this.style.display='none';this.previousElementSibling.innerHTML='<i data-lucide=\\'image-off\\'></i>';if(window.lucide)lucide.createIcons();">`:'';
+  return `<article class="case-card">
+    <div class="case-cover">
+      <div class="cover-skeleton" data-skel>${icon('image')}</div>
+      ${coverHTML}
+      <div class="case-badge">
+        <span class="badge">${icon('tag')} ${esc(c.crime_type||'قضية')}</span>
+        <span class="badge difficulty-${esc(diff)}">${icon(diffIcon)} ${esc(diffLabel)}</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <h3>${esc(c.title)}</h3>
+      <div class="case-victim">${icon('user-x')} ${esc(c.victim_name||'ضحية')}</div>
+      <div class="case-location">${icon('map-pin')} ${esc(c.location_name||'—')}</div>
+      <p class="case-preview">${esc(c.story_preview||'')}</p>
+      <div class="case-stats">
+        <span class="case-stat">${icon('search')} ${c.clues_count||0} دليل</span>
+        <span class="case-stat">${icon('users')} 4 مشتبهين</span>
+        <span class="case-stat">${icon('play-circle')} ${c.plays_count||0}</span>
+      </div>
+      <button class="case-play" data-case-play="${esc(c.id)}">${icon('play-circle')} ابدأ التحقيق</button>
+    </div>
+  </article>`;
+}
+async function loadCaseFromLibrary(caseId){
+  if(requestBusy)return;
+  if(hasCase()&&!state.verdict&&state.questions>0){
+    showModal(`<h2>ملف جديد؟</h2><p>سيستبدل التقدم الحالي.</p><div class="modal-actions"><button class="btn btn-secondary" id="cancelLoad">إلغاء</button><button class="btn btn-danger" id="confirmLoad">فتح القضية</button></div>`);
+    $('cancelLoad').onclick=closeModal;
+    $('confirmLoad').onclick=()=>{closeModal();doLoadCase(caseId)};
+    return;
+  }
+  doLoadCase(caseId);
+}
+async function doLoadCase(caseId){
+  requestBusy=true;
+  setLoading(true,'يُفتح ملف القضية','تُرتّب الوقائع…');
+  try{
+    const data=await apiCall(settings.casePath,{case_id:caseId});
+    if(!data.success||!Array.isArray(data.suspects))throw new Error('قضية غير صالحة');
+    const caseData={
+      id:data.case_id,
+      title:data.title,
+      crime_type:data.crime_type,
+      difficulty:data.difficulty,
+      victim:parseJson(data.victim,{}),
+      location:parseJson(data.location,{}),
+      story:data.story,
+      time_of_incident:data.time_of_incident,
+      incident_date:data.incident_date,
+      weather:data.weather,
+      timeline:parseJson(data.timeline,[]),
+      crime_scene_clues:parseJson(data.crime_scene_clues,[]),
+      suspects:data.suspects.map(s=>({...s,secrets:parseJson(s.secrets,[]),revealed_secrets:parseJson(s.revealed_secrets,[])}))
+    };
+    state=blankState();
+    state.caseData=caseData;
+    state.sessionId=uuid();
+    state.startedAt=new Date().toISOString();
+    closeModal();setLoading(false);activateGame();
+    toast('فُتح ملف القضية.');
+  }catch(e){
+    setLoading(false);
+    toast(e.message,'error',6500);
+  }finally{requestBusy=false}
+}
+async function loadRandomCase(){
+  if(requestBusy)return;
+  setLoading(true,'اختيار عشوائي','نختار قضية…');
+  try{
+    const r=await apiCall(settings.randomPath,{});
+    if(!r.success||!r.case_id)throw new Error('تعذّر الاختيار.');
+    setLoading(false);
+    toast(r.title,'info',2200);
+    setTimeout(()=>doLoadCase(r.case_id),400);
+  }catch(e){
+    setLoading(false);
+    toast(e.message,'error',6500);
+  }
+}
+
+/* ═══════════ Suspect Image ═══════════ */
+function getSuspectImageUrl(s){
+  if(s.image_url)return s.image_url;
+  const key='s_'+String(s.id||s.name||'').replace(/[^a-z0-9]/gi,'_');
+  if(imageCache[key])return imageCache[key];
+  return '';
+}
+function suspectCardHTML(s,idx){
+  const url=getSuspectImageUrl(s);
+  const tension=Math.max(0,Math.min(100,Number(s.tension_level)||20));
+  const emotion=EMOTIONS[s.emotional_state]||'هادئ';
+  const revealed=(s.revealed_secrets||[]).length;
+  const imgHTML=url?`<img src="${esc(url)}" alt="${esc(s.name)}" loading="lazy" onload="this.classList.add('loaded');this.previousElementSibling.classList.add('done')" onerror="this.style.display='none';this.previousElementSibling.innerHTML='<i data-lucide=\\'user-round\\'></i>';if(window.lucide)lucide.createIcons();">`:'';
+  return `<article class="suspect-card" data-suspect-card="${esc(s.id)}">
+    <div class="suspect-art">
+      <div class="skeleton" data-skel>${icon('user-round')}</div>
+      <span class="suspect-num">SUBJECT 0${idx+1}</span>
+      ${imgHTML}
+    </div>
+    <div class="suspect-body">
+      <h3>${esc(s.name)}</h3>
+      <div class="suspect-role">${esc(s.occupation||'—')}${s.age?' · '+esc(s.age)+' عامًا':''}</div>
+      <div class="suspect-traits">
+        <span class="trait-chip emotion">${icon('activity')} ${esc(emotion)}</span>
+        ${revealed>0?`<span class="trait-chip">${icon('lock-open')} ${revealed} أسرار</span>`:''}
+      </div>
+      <div class="tension-mini">
+        <div class="tension-mini-head"><span>التوتر</span><span>${tension}%</span></div>
+        <div class="tension-mini-bar"><span style="width:${tension}%"></span></div>
+      </div>
+      <button class="suspect-open" data-interrogate="${esc(s.id)}">${icon('message-circle')} ابدأ الاستجواب</button>
+    </div>
+  </article>`;
+}
+function bindSuspectCards(root){
+  root.querySelectorAll('[data-interrogate]').forEach(b=>b.onclick=e=>{e.stopPropagation();startInterrogation(b.dataset.interrogate)});
+  root.querySelectorAll('[data-suspect-card]').forEach(c=>c.onclick=e=>{if(!e.target.closest('button'))startInterrogation(c.dataset.suspectCard)});
+}
+
+/* ═══════════ Case Screen ═══════════ */
+function renderCaseScreen(){
+  if(!hasCase())return;
+  const c=state.caseData;
+  const v=c.victim||{};
+  const loc=c.location||{};
+  $('caseTitle').textContent=c.title||'قضية';
+  $('caseStory').textContent=c.story||'';
+  $('caseLocation').textContent=loc.name||'—';
+  $('caseVictim').textContent=v.name||'—';
+  $('caseDate').textContent=c.incident_date||'—';
+  $('caseWeather').textContent=c.weather||'—';
+  $('caseCode').textContent='CASE—'+String(c.id||'').slice(0,6).toUpperCase();
+  $('victimDetail').textContent=[v.name,v.age?v.age+' سنة':'',v.occupation].filter(Boolean).join(' · ');
+  $('locationDetail').textContent=loc.name||'—';
+  $('timeDetail').textContent=c.time_of_incident||'—';
+  $('dateDetail').textContent=[c.incident_date,c.weather].filter(Boolean).join(' · ')||'—';
+  
+  // Timeline
+  const tl=$('timelineList');
+  if(c.timeline&&c.timeline.length){
+    tl.innerHTML=c.timeline.map(t=>`<div class="timeline-item"><div class="timeline-time">${esc(t.time||'')}</div><div class="timeline-event">${esc(t.event||'')}</div></div>`).join('');
+    $('timelinePanel').classList.remove('hidden');
+  }else $('timelinePanel').classList.add('hidden');
+  
+// Clues — بدون صور، أيقونات فقط
+const cl=$('cluesList');
+if(c.crime_scene_clues&&c.crime_scene_clues.length){
+  cl.innerHTML=c.crime_scene_clues.map((clue,i)=>{
+    const catIcon=EVIDENCE_ICONS[clue.category]||'search';
+    const catLabel=EVIDENCE_LABELS[clue.category]||'دليل';
+    return `<article class="clue-card">
+      <div class="clue-header">
+        <div class="clue-icon-big">${icon(catIcon)}</div>
+        <div class="clue-cat-badge">${esc(catLabel)}</div>
+      </div>
+      <div class="clue-content">
+        <h4>${esc(clue.title||'دليل')}</h4>
+        <p>${esc(clue.description||'')}</p>
+        ${clue.significance?`<div class="clue-sig">${icon('lightbulb')}<span>${esc(clue.significance)}</span></div>`:''}
+        <div class="clue-meta">
+          ${clue.location_in_scene?`<span>${icon('map-pin')} ${esc(clue.location_in_scene)}</span>`:''}
+          ${(clue.connected_to_suspects||[]).length?`<span>${icon('user')} ${esc(clue.connected_to_suspects.join('، '))}</span>`:''}
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+  $('cluesPanel').classList.remove('hidden');
+}else $('cluesPanel').classList.add('hidden');
+  
+  renderStats();
+  refreshIcons();
+}
+function renderStats(){
+  const q=state.questions,e=state.evidence.length,s=state.secrets.length;
+  $('statQuestions').textContent=q;
+  $('statEvidence').textContent=e;
+  $('statSecrets').textContent=s;
+  const progress=Math.min(100,Math.round((Math.min(q,12)/12*.4)+(Math.min(e,8)/8*.35)+(Math.min(s,5)/5*.25))*100);
+  $('caseProgress').style.width=progress+'%';
+  $('progressHint').textContent=progress<30?'ابدأ بالاستجواب.':progress<70?'تتضح الخيوط.':'لديك معطيات كافية.';
+}
+function renderSuspectsFull(){
+  if(!hasCase())return;
+  const s=state.caseData.suspects;
+  $('suspectsGridFull').innerHTML=s.map((x,i)=>suspectCardHTML(x,i)).join('');
+  bindSuspectCards($('suspectsGridFull'));
+  refreshIcons();
+}
+
+/* ═══════════ Interrogation ═══════════ */
+function startInterrogation(id){
+  const s=state.caseData.suspects.find(x=>String(x.id)===String(id));
+  if(!s)return;
+  state.activeSuspectId=s.id;
+  state.conversations[s.id]=state.conversations[s.id]||[];
+  setScreen('interrogateScreen');
+}
+function renderInterrogation(){
+  if(!hasCase())return;
+  $('interrogateChoices').innerHTML=state.caseData.suspects.map((x,i)=>suspectCardHTML(x,i)).join('');
+  bindSuspectCards($('interrogateChoices'));
+  if(!state.activeSuspectId){
+    $('interrogationStage').classList.add('hidden');
+    $('interrogateChoicesPanel').classList.remove('hidden');
+    renderSecrets();
+    refreshIcons();
+    return;
+  }
+  const s=state.caseData.suspects.find(x=>String(x.id)===String(state.activeSuspectId));
+  if(!s){$('interrogationStage').classList.add('hidden');return}
+  $('interrogateChoicesPanel').classList.add('hidden');
+  $('interrogationStage').classList.remove('hidden');
+  $('activeName').textContent=s.name;
+  $('activeOccupation').textContent=[s.occupation,s.age?s.age+' عامًا':null,s.personality].filter(Boolean).join(' · ');
+  const url=getSuspectImageUrl(s);
+  const portrait=$('activePortrait');
+  portrait.innerHTML=`<div class="p-skel">${icon('user-round')}</div>`+(url?`<img src="${esc(url)}" alt="${esc(s.name)}" onload="this.classList.add('loaded');this.previousElementSibling.classList.add('done')" onerror="this.style.display='none';">`:'');
+  const tension=Math.max(0,Math.min(100,Number(s.tension_level)||20));
+  $('tensionValue').textContent=tension;
+  const bar=$('tensionBar');
+  bar.style.width=tension+'%';
+  bar.classList.toggle('warn',tension>=50&&tension<75);
+  bar.classList.toggle('danger',tension>=75);
+  $('emotionBadge').innerHTML=`<span class="dot"></span><span>${esc(EMOTIONS[s.emotional_state]||'هادئ')}</span>`;
+  const rev=(s.revealed_secrets||[]).length;
+  $('secretsProgress').innerHTML=`<small>الأسرار:</small>${[1,2,3].map(n=>`<div class="s-dot ${rev>=n?'on':''}"></div>`).join('')}`;
+  $('sessionLabel').textContent='TOKEN · '+String(state.sessionId||'').slice(0,6).toUpperCase();
+  renderChat();
+  renderSecrets();
+  refreshIcons();
+}
+function renderChat(){
+  const log=$('chatLog'),arr=state.conversations[state.activeSuspectId]||[];
+  $('chatCount').textContent=arr.length?`${arr.length} رسالة`:'لا رسائل بعد.';
+  if(!arr.length){log.innerHTML='<div class="chat-empty">ابدأ بسؤال مفتوح.</div>';return}
+  log.innerHTML=arr.map(m=>{
+    if(m.role==='system')return `<div class="message system">${esc(m.text)}</div>`;
+    return `<div class="message ${m.role==='user'?'user':'suspect'}">${esc(m.text)}</div>`;
+  }).join('');
+  requestAnimationFrame(()=>{log.scrollTop=log.scrollHeight});
+}
+async function sendQuestion(){
+  if(requestBusy)return;
+  const input=$('questionInput'),message=input.value.trim();
+  if(!message){toast('اكتب سؤالًا.','info');return}
+  if(!state.activeSuspectId){toast('اختر مشتبهًا.','info');return}
+  const s=state.caseData.suspects.find(x=>String(x.id)===String(state.activeSuspectId));
+  if(!s)return;
+  requestBusy=true;
+  $('sendQuestionBtn').disabled=true;$('sendQuestionBtn').classList.add('loading');
+  input.disabled=true;
+  const arr=state.conversations[s.id]||(state.conversations[s.id]=[]);
+  arr.push({role:'user',text:message});
+  state.questions++;
+  input.value='';input.style.height='auto';
+  renderChat();renderStats();
+  try{
+    const result=await apiCall(settings.interrogatePath,{suspect_id:s.id,message,session_id:state.sessionId});
+    if(result.success===false)throw new Error(result.message||'تعذّر الرد.');
+    const reply=String(result.reply||result.message||'—');
+    arr.push({role:'suspect',text:reply});
+    state.lastReplyBySuspect[s.id]=reply;
+    const oldT=Number(s.tension_level)||20;
+    if(result.tension!==undefined)s.tension_level=Math.max(0,Math.min(100,Number(result.tension)||0));
+    if(result.emotional_state)s.emotional_state=result.emotional_state;
+    if(s.tension_level-oldT>=15)arr.push({role:'system',text:`ارتفع التوتر ${s.tension_level-oldT}%`});
+    state.maxTension=Math.max(state.maxTension,Number(s.tension_level)||0);
+    if(result.secret_revealed!==undefined&&result.secret_revealed!==null&&result.secret_revealed!==false&&result.secret_revealed!==0){
+      const lvl=Number(result.secret_revealed);
+      const secret=(s.secrets||[]).find(x=>Number(x.level)===lvl)||((s.secrets||[])[lvl-1]);
+      if(secret){
+        s.revealed_secrets=s.revealed_secrets||[];
+        if(!s.revealed_secrets.includes(secret.level))s.revealed_secrets.push(secret.level);
+        if(!state.secrets.some(x=>x.suspect_id===s.id&&x.level===secret.level)){
+          state.secrets.push({suspect_id:s.id,suspect_name:s.name,level:secret.level,content:secret.content||String(secret)});
+          arr.push({role:'system',text:`انكشف سر المستوى ${secret.level}`});
+          toast(`انكشف سر في ملف ${s.name}.`,'success',4000);
+        }
+      }
+    }
+    if(result.evidence_added&&result.evidence_added.title){
+      const ev={...result.evidence_added,id:uuid(),suspect_id:s.id,suspect_name:s.name,at:new Date().toISOString()};
+      if(!state.evidence.some(e=>e.title===ev.title&&e.description===ev.description)){
+        state.evidence.push(ev);
+        arr.push({role:'system',text:`سُجّل دليل: ${ev.title}`});
+        toast(`دليل: ${ev.title}`,'success',4000);
+      }
+    }
+    renderInterrogation();renderStats();saveState(true);
+    if(settings.voice&&settings.autoRead)speak(reply,s.emotional_state);
+  }catch(e){
+    arr.push({role:'system',text:`تعذّر الاتصال: ${e.message}`});
+    renderChat();toast(e.message,'error',6500);saveState(true);
+  }finally{
+    requestBusy=false;
+    $('sendQuestionBtn').disabled=false;$('sendQuestionBtn').classList.remove('loading');
+    input.disabled=false;
+  }
+}
+function renderSecrets(){
+  const box=$('secretList');
+  if(!box)return;
+  if(!state.secrets.length){box.innerHTML='<div class="empty-state">الأسرار تُكشف عبر الحوار.</div>';return}
+  box.innerHTML=state.secrets.slice().reverse().map(s=>`<article class="secret-card"><strong>${icon('lock-keyhole')} السر ${esc(s.level)} · ${esc(s.suspect_name)}</strong><p>${esc(s.content||'—')}</p></article>`).join('');
+  refreshIcons();
+}
+
+/* ═══════════ Evidence Screen ═══════════ */
+function renderEvidenceScreen(){
+  const box=$('evidenceList');
+  $('evidenceTotal').textContent=`${state.evidence.length} أدلة`;
+  $('evidenceSummary').textContent=state.evidence.length?`مرتبطة بـ ${new Set(state.evidence.map(e=>e.suspect_name).filter(Boolean)).size} مشتبه بهم.`:'لم يُسجّل دليل بعد.';
+  if(!state.evidence.length){
+    box.innerHTML=`<div class="empty-state">${icon('layers-3')}<br>اللوحة فارغة.</div>`;
+    refreshIcons();return;
+  }
+  box.innerHTML=state.evidence.slice().reverse().map(e=>`
+    <article class="evidence-item">
+      <div class="evidence-icon">${icon(EVIDENCE_ICONS[e.type]||'file-search')}</div>
+      <div>
+        <h3>${esc(e.title)}</h3>
+        <p>${esc(e.description||'—')}</p>
+        <div class="meta">${icon('user')} ${esc(e.suspect_name||'—')} · ${icon('tag')} ${esc(EVIDENCE_LABELS[e.type]||'دليل')}</div>
+      </div>
+    </article>`).join('');
+  refreshIcons();
+}
+
+/* ═══════════ Hint System ═══════════ */
+function requestHint(){
+  if(!hasCase()){toast('ابدأ قضية.','info');return}
+  if((state.hintsUsed||0)>=3){toast('استنفدت التلميحات.','info');return}
+  const hint=generateLocalHint();
+  state.hintsUsed=(state.hintsUsed||0)+1;
+  saveState(true);
+  updateHintButton();
+  const left=3-state.hintsUsed;
+  showModal(`
+    <div style="text-align:center;margin-bottom:14px">
+      <div style="width:70px;height:70px;border-radius:50%;background:radial-gradient(circle,#c9a96a25,#c9a96a08);display:grid;place-items:center;margin:0 auto 12px;border:1px solid #c9a96a66">
+        <i data-lucide="lightbulb" style="width:32px;height:32px;color:#ead5a0;stroke-width:1.6"></i>
+      </div>
+      <div class="eyebrow">HINT</div>
+      <h2 style="margin:8px 0 4px">تلميح</h2>
+      <p style="font-size:11.5px;color:var(--muted)">استخدمت ${state.hintsUsed} من 3 · متبقٍ ${left}</p>
+    </div>
+    <p style="font-size:14px;line-height:2;color:#e6d9b3;text-align:center;padding:12px;border:1px dashed #c9a96a55;border-radius:12px;background:#c9a96a08">${esc(hint)}</p>
+    <div class="modal-actions"><button class="btn btn-primary" id="closeHint">فهمت</button></div>
+  `);
+  $('closeHint').onclick=closeModal;
+  refreshIcons();
+}
+function generateLocalHint(){
+  const c=state.caseData;
+  const investigated=Object.keys(state.conversations).filter(k=>(state.conversations[k]||[]).length);
+  const notInvestigated=c.suspects.filter(s=>!investigated.includes(s.id));
+  const clues=c.crime_scene_clues||[];
+  const uncoveredClues=clues.filter(cl=>!state.evidence.some(e=>e.title&&e.title.includes((cl.title||'').substring(0,6))));
+  const lowTension=c.suspects.filter(x=>(x.tension_level||0)<40);
+  const noSecret=c.suspects.find(x=>(x.revealed_secrets||[]).length===0);
+  
+  const hints=[
+    ()=>notInvestigated.length?`المتهم "${notInvestigated[0].name}" لم تستجوبه بعد. ذريعته قد تكشف تناقضاً مهماً.`:null,
+    ()=>uncoveredClues.length?`الدليل "${uncoveredClues[0].title}" يحمل دلالة مهمة. اسأل عن ${uncoveredClues[0].location_in_scene||'مصدره'} مع المتهمين.`:null,
+    ()=>noSecret?`${noSecret.name} لم يكشف أي سر. ابحث عن نقطة ضعفه - دين، علاقة، أو ماضٍ مريب.`:null,
+    ()=>lowTension.length?`توتر ${lowTension[0].name} منخفض. اضغط عليه بأسئلة اتهامية مباشرة.`:null,
+    ()=>`جرب توجيه أسئلة محددة. بدل "أين كنت؟" اسأل "من كان آخر من رآك؟" أو "ما الذي سمعته تلك الليلة؟"`,
+    ()=>`راقب التناقضات الزمنية. متى قال كل متهم أنه رأى الضحية آخر مرة؟`,
+    ()=>`كل متهم له 3 أسرار. ركز على كشف مستواها الثالث - عادة يكشف الحقيقة.`
+  ];
+  for(const fn of hints){const h=fn();if(h)return h}
+  return 'استمر في التحقيق. بعض المتهمين يخفي أكثر مما يظهر.';
+}
+
+/* ═══════════ Verdict ═══════════ */
+function renderAccusation(){
+  if(!hasCase())return;
+  $('accuseGrid').innerHTML=state.caseData.suspects.map(s=>`<button class="accuse-option ${state.selectedAccused===s.id?'selected':''}" data-accuse="${esc(s.id)}"><span class="radio"></span><span><strong>${esc(s.name)}</strong><small>${esc(s.occupation||'')}</small></span></button>`).join('');
+  $('accuseGrid').querySelectorAll('[data-accuse]').forEach(b=>b.onclick=()=>{state.selectedAccused=b.dataset.accuse;renderAccusation();saveState(true)});
+}
+function submitVerdict(){
+  if(!state.selectedAccused){toast('اختر مشتبهًا.','info');return}
+  const chosen=state.caseData.suspects.find(s=>s.id===state.selectedAccused);
+  showModal(`<h2>ختم الحكم؟</h2><p>اتهام <strong style="color:var(--gold2)">${esc(chosen?.name||'—')}</strong>. سيُكشف الحل السري.</p><div class="modal-actions"><button class="btn btn-secondary" id="cancelVerdict">مراجعة</button><button class="btn btn-gold" id="confirmVerdict">${icon('stamp')} ختم</button></div>`);
+  $('cancelVerdict').onclick=closeModal;
+  $('confirmVerdict').onclick=()=>{
+    closeModal();
+    const culprit=state.caseData.suspects.find(s=>s.is_murderer===true);
+    state.verdict={
+      accused_id:state.selectedAccused,
+      accused_name:chosen?.name,
+      correct:culprit?String(culprit.id)===String(state.selectedAccused):null,
+      culprit_name:culprit?.name||'—',
+      at:new Date().toISOString()
+    };
+    if(!state.finishedAt)state.finishedAt=new Date().toISOString();
+    saveState(true);
+    setScreen('resultScreen');
+    
+    // ✅ حفظ النتيجة في المتصدرين
+    setTimeout(() => {
+      submitResultToLeaderboard(state.verdict).catch(e => console.error(e));
+    }, 600);
+  };
+}
+
+/* ═══════════ Result Screen ═══════════ */
+function renderResultScreen(){
+  const v=state.verdict;
+  if(!v){$('tab-result').innerHTML='<div class="empty-state">لا حكم بعد.</div>';return}
+  const correct=!!v.correct;
+  const suspect=state.caseData.suspects.find(s=>String(s.id)===String(v.accused_id));
+  const culprit=state.caseData.suspects.find(s=>s.is_murderer===true);
+  const started=state.startedAt?new Date(state.startedAt).getTime():Date.now();
+  const finished=state.finishedAt?new Date(state.finishedAt).getTime():Date.now();
+  const dur=finished-started;
+  const solution=state.caseData.solution;
+  const solutionText=typeof solution==='object'?[solution.full_explanation,solution.how_to_prove].filter(Boolean).join('\n\n'):(solution||'—');
+  
+  $('tab-result').innerHTML=`
+    <div class="result-hero ${correct?'win':'lose'}">
+      <div class="result-seal">${icon(correct?'check-check':'file-warning')}</div>
+      <div class="eyebrow">CASE CLOSED</div>
+      <h2>${correct?'أحسنت، أصبت الهدف':'القضية لم تُحل'}</h2>
+      <p>اتهمت: <strong>${esc(suspect?.name||v.accused_name||'—')}</strong></p>
+      ${!correct&&culprit?`<p>القاتل الحقيقي: <strong>${esc(culprit.name)}</strong></p>`:''}
+      <p style="font-size:12.5px;color:var(--muted);margin-top:14px">${correct?'العدالة تحققت.':'ستبقى وصمة في سجلك.'}</p>
+    </div>
+    <button class="btn btn-primary btn-block" id="toConclusion" style="margin-top:14px">${icon('arrow-left')} الختام</button>`;
+  $('toConclusion').onclick=()=>setScreen('conclusionScreen');
+  
+  $('tab-stats').innerHTML=`
+    <div class="panel">
+      <h3 class="panel-title">${icon('chart-no-axes-column-increasing')} سجل أدائك</h3>
+      <div class="stat-row">
+        <div class="stat"><strong>${state.questions}</strong><span>سؤالًا</span></div>
+        <div class="stat"><strong>${state.maxTension}%</strong><span>أعلى توتر</span></div>
+        <div class="stat"><strong>${state.evidence.length}</strong><span>دليلًا</span></div>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><strong>${state.secrets.length}</strong><span>سرًا</span></div>
+        <div class="stat"><strong>${state.hintsUsed||0}/3</strong><span>تلميحات</span></div>
+        <div class="stat"><strong>${fmtDuration(dur)}</strong><span>الوقت</span></div>
+      </div>
+    </div>`;
+  
+  $('tab-solution').innerHTML=`
+    <div class="panel">
+      <h3 class="panel-title">${icon('book-open')} القصة الكاملة</h3>
+      <p class="story">${esc(state.caseData.story||'')}</p>
+    </div>
+    <div class="panel" style="border-color:#bda66b66;background:linear-gradient(145deg,#2a3d2c,#17231b)">
+      <h3 class="panel-title">${icon('key-round')} الحل السري</h3>
+      <p class="story" style="color:#e6d9b3;white-space:pre-wrap">${esc(solutionText)}</p>
+      ${culprit?`<div style="margin-top:14px;padding-top:14px;border-top:1px solid #ffffff15">
+        <div class="eyebrow" style="margin-bottom:6px">القاتل</div>
+        <strong style="font-size:16px;color:var(--gold2);font-family:Cairo,sans-serif">${esc(culprit.name)}</strong>
+        <p style="font-size:12px;color:var(--muted);margin-top:6px">${esc(culprit.motive||'')}</p>
+      </div>`:''}
+    </div>`;
+  
+  $('tab-share').innerHTML=`
+    <div class="panel">
+      <h3 class="panel-title">${icon('share-2')} شارك نتيجتك</h3>
+      <p class="story">شارك تقرير القضية مع أصدقائك.</p>
+      <div class="share-actions">
+        <button class="btn btn-primary btn-block" id="shareNative">${icon('share')} مشاركة</button>
+        <button class="btn btn-secondary btn-block" id="copyReport">${icon('clipboard-copy')} نسخ كنص</button>
+        <button class="btn btn-secondary btn-block" id="downloadReport">${icon('download')} تحميل كملف</button>
+      </div>
+    </div>`;
+  $('shareNative').onclick=()=>shareReport(true,'');
+  $('copyReport').onclick=()=>shareReport(false,'copy');
+  $('downloadReport').onclick=()=>shareReport(false,'download');
+  refreshIcons();
+}
+function buildReport(){
+  const v=state.verdict||{};
+  const started=state.startedAt?new Date(state.startedAt).getTime():Date.now();
+  const finished=state.finishedAt?new Date(state.finishedAt).getTime():Date.now();
+  const lines=[
+    'خيوط الجريمة — تقرير',
+    '─────────────',
+    `القضية: ${state.caseData.title||''}`,
+    `النوع: ${state.caseData.crime_type||''}`,
+    `النتيجة: ${v.correct?'أحسنت':'لم تصب'}`,
+    `اتهمت: ${v.accused_name||'—'}`,
+    `${v.correct?'':'القاتل الحقيقي: '+(v.culprit_name||'—')}`,
+    `مدة التحقيق: ${fmtDuration(finished-started)}`,
+    '─────────────',
+    `الأسئلة: ${state.questions} · الأدلة: ${state.evidence.length} · الأسرار: ${state.secrets.length}`,
+    `التلميحات: ${state.hintsUsed||0}/3`,
+    '',
+    '— تطوير: حسن المحمد'
+  ];
+  return lines.filter(Boolean).join('\n');
+}
+async function shareReport(native=true,mode=''){
+  const text=buildReport();
+  if(native&&navigator.share){
+    try{await navigator.share({title:'خيوط الجريمة',text});toast('تم فتح المشاركة.');return}catch(e){if(e.name==='AbortError')return}
+  }
+  if(mode==='copy'||!navigator.share){
+    try{await navigator.clipboard.writeText(text);toast('تم النسخ.','success')}catch(e){toast('تعذّر النسخ.','error')}
+    if(mode==='copy')return;
+  }
+  if(mode==='download'){
+    const blob=new Blob(['\ufeff'+text],{type:'text/plain;charset=utf-8'});
+    const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='khuyut-report.txt';a.click();URL.revokeObjectURL(a.href);
+    toast('تم التحميل.');
+  }
+}
+
+/* ═══════════ Speech ═══════════ */
+let arabicVoice=null;
+function loadVoices(){
+  if(!('speechSynthesis'in window))return;
+  const voices=speechSynthesis.getVoices();
+  const prefs=['Majed','Maged','Tarik','Tariq','Laila','Layla','Hoda','Salma','Zariyah','Zeina','Sana','Khalid'];
+  for(const p of prefs){const v=voices.find(x=>(x.name||'').includes(p));if(v){arabicVoice=v;return}}
+  arabicVoice=voices.find(v=>v.lang&&v.lang.startsWith('ar'))||null;
+}
+if('speechSynthesis'in window){loadVoices();speechSynthesis.onvoiceschanged=loadVoices}
+function speak(text,emotion='calm'){
+  if(!settings.voice||!('speechSynthesis'in window))return;
+  speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(text);u.lang='ar-SA';
+  if(arabicVoice)u.voice=arabicVoice;
+  switch(emotion){
+    case 'nervous':u.rate=1.08;u.pitch=1.08;break;
+    case 'defensive':u.rate=1.02;u.pitch=1.0;break;
+    case 'angry':u.rate=1.1;u.pitch=1.15;break;
+    case 'breaking':u.rate=0.85;u.pitch=0.9;break;
+    case 'confessed':u.rate=0.88;u.pitch=0.92;break;
+    default:u.rate=0.96;u.pitch=1.0;
+  }
+  speechSynthesis.speak(u);
+}
+function toggleVoice(){
+  settings.voice=!settings.voice;
+  localStorage.setItem(SETTINGS_KEY,JSON.stringify(settings));
+  $('soundToggle').innerHTML=icon(settings.voice?'volume-2':'volume-x');
+  refreshIcons();
+  if(!settings.voice&&'speechSynthesis'in window)speechSynthesis.cancel();
+  toast(settings.voice?'تم تفعيل الصوت.':'تم إيقاف الصوت.','info');
+}
+function initRecognition(){
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){toast('الإملاء الصوتي غير متاح.','info',5000);return}
+  const input=$('questionInput');
+  if(recognitionActive){
+    try{recognition.stop()}catch(e){}
+    recognitionActive=false;$('micBtn').classList.remove('recording');
+    $('micStatus').textContent='توقف الإملاء.';
+    return;
+  }
+  recognition=new SR();
+  recognition.lang='ar-SA';recognition.continuous=true;recognition.interimResults=true;
+  voiceBaseText=input.value;recognitionActive=true;
+  $('micBtn').classList.add('recording');
+  $('micStatus').textContent='يعمل… تحدث بالعربية.';
+  recognition.onresult=e=>{
+    let ft='',it='';
+    for(let i=e.resultIndex;i<e.results.length;i++){const t=e.results[i][0].transcript;if(e.results[i].isFinal)ft+=t;else it+=t}
+    const base=voiceBaseText.trim();
+    input.value=[base,ft].filter(Boolean).join(base&&ft?' ':'')+(it?' '+it:'');
+    input.dataset.interim=it;
+    input.style.height='auto';input.style.height=Math.min(input.scrollHeight,110)+'px';
+  };
+  recognition.onerror=e=>{if(e.error!=='no-speech'&&e.error!=='aborted')toast('خطأ الميكروفون: '+e.error,'error')};
+  recognition.onend=()=>{
+    recognitionActive=false;$('micBtn').classList.remove('recording');
+    const it=input.dataset.interim||'';
+    if(it){input.value=input.value.replace(new RegExp(' '+it.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'$'),'');delete input.dataset.interim}
+    voiceBaseText=input.value;$('micStatus').textContent='توقف الإملاء.';
+  };
+  try{recognition.start()}catch(e){recognitionActive=false;toast('تعذّر تشغيل الميكروفون.','error')}
+}
+
+
+/* ═══════════════════════════════════════════════════
+   نظام اللاعبين والمتصدرين
+   ═══════════════════════════════════════════════════ */
+
+const PLAYER_KEY = 'khuyut_player_v1';
+
+function getPlayer() {
+  return safeParse(localStorage.getItem(PLAYER_KEY), null);
+}
+
+function savePlayer(player) {
+  localStorage.setItem(PLAYER_KEY, JSON.stringify(player));
+}
+
+function ensurePlayer() {
+  let player = getPlayer();
+  if (!player || !player.id || !player.name) {
+    askPlayerName();
+    return null;
+  }
+  return player;
+}
+
+// ═══ التحقق من صحة الاسم ═══
+function validatePlayerName(name) {
+  const trimmed = name.trim();
+  
+  if (trimmed.length < 3) {
+    return { ok: false, reason: 'الاسم قصير جداً (3 أحرف على الأقل)' };
+  }
+  if (trimmed.length > 20) {
+    return { ok: false, reason: 'الاسم طويل جداً (20 حرفاً كحد أقصى)' };
+  }
+  // فقط حروف عربية + إنجليزية + مسافات
+  if (!/^[\u0600-\u06FFa-zA-Z\s]+$/.test(trimmed)) {
+    return { ok: false, reason: 'الاسم يجب أن يحتوي حروفاً عربية أو إنجليزية فقط' };
+  }
+  // لا مسافات متتالية
+  if (/\s{2,}/.test(trimmed)) {
+    return { ok: false, reason: 'تجنّب المسافات المتتالية' };
+  }
+  // لا يبدأ أو ينتهي بمسافة
+  if (trimmed !== name) {
+    return { ok: true, normalized: trimmed };
+  }
+  return { ok: true, normalized: trimmed };
+}
+
+async function askPlayerName(callback) {
+  showModal(`
+    <div style="text-align:center;margin-bottom:18px">
+      <div style="width:86px;height:86px;border-radius:50%;background:radial-gradient(circle,#c9a96a25,#c9a96a08);display:grid;place-items:center;margin:0 auto 14px;border:1.5px solid #c9a96a66;box-shadow:0 0 30px #c9a96a33">
+        <i data-lucide="user-plus" style="width:40px;height:40px;color:#ead5a0;stroke-width:1.5"></i>
+      </div>
+      <div class="eyebrow">WELCOME DETECTIVE</div>
+      <h2 style="margin:8px 0 6px;font-family:Cairo;font-weight:900">ما اسمك أيها المحقق؟</h2>
+      <p style="font-size:12.5px;color:var(--muted);margin:0 0 6px">سيظهر اسمك في قاعة الشرف</p>
+    </div>
+    <div class="field">
+      <input id="playerNameInput" type="text" maxlength="20" placeholder="مثال: أحمد المحقق" autocomplete="off" dir="auto" inputmode="text" style="text-align:center;font-family:Cairo;font-weight:700;font-size:15px;padding:14px;direction:rtl;unicode-bidi:plaintext">
+      <small style="text-align:center;display:block;color:var(--muted)">حروف عربية أو إنجليزية فقط · 3-20 حرفاً</small>
+      <div id="nameError" style="display:none;margin-top:8px;padding:8px 10px;border-radius:8px;background:#c0664f22;border:1px solid #c0664f55;color:#e08b74;font-size:11.5px;text-align:center"></div>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-primary" id="savePlayerName">ابدأ التحقيق</button>
+    </div>
+  `);
+  
+  $('modalBackdrop').classList.add('modal-center');
+  
+  const input = $('playerNameInput');
+  const btn = $('savePlayerName');
+  const errorBox = $('nameError');
+  
+  setTimeout(() => input.focus({preventScroll:true}), 150);
+  
+  const showError = (msg) => {
+    errorBox.textContent = msg;
+    errorBox.style.display = 'block';
+  };
+  const hideError = () => { errorBox.style.display = 'none'; };
+  
+  input.addEventListener('input', hideError);
+  
+  const submit = async () => {
+    const raw = input.value;
+    const validation = validatePlayerName(raw);
+    
+    if (!validation.ok) {
+      showError(validation.reason);
+      return;
+    }
+    
+    const name = validation.normalized;
+    btn.disabled = true;
+    btn.textContent = 'جاري التحقق…';
+    hideError();
+    
+    try {
+      // فحص التكرار
+      const check = await apiCall('/webhook/library/check-name', { name });
+      
+      if (!check.available) {
+        showError('هذا الاسم مُستخدم بالفعل. اختر اسماً آخر.');
+        btn.disabled = false;
+        btn.textContent = 'ابدأ التحقيق';
+        return;
+      }
+      
+      // حفظ اللاعب
+      const player = {
+        id: uuid(),
+        name: name,
+        created_at: new Date().toISOString()
+      };
+      savePlayer(player);
+      $('modalBackdrop').classList.remove('modal-center');
+      closeModal();
+      toast(`مرحباً ${player.name}!`,'success',3000);
+      if (callback) callback(player);
+      
+    } catch (e) {
+      console.error(e);
+      showError('تعذّر الاتصال بالخادم. حاول مجدداً.');
+      btn.disabled = false;
+      btn.textContent = 'ابدأ التحقيق';
+    }
+  };
+  
+  btn.onclick = submit;
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); submit(); }
+  });
+  refreshIcons();
+}
+
+/* ═══════════ حفظ النتيجة عند الحكم ═══════════ */
+
+async function submitResultToLeaderboard(verdictData) {
+  const player = getPlayer();
+  if (!player) {
+    console.warn('لا يوجد لاعب مسجّل');
+    return;
+  }
+  
+  // حساب المعطيات
+  const evidence = state.evidence.length;
+  const secrets = state.secrets.length;
+  const hints = state.hintsUsed || 0;
+  const questions = state.questions || 0;
+  const startedAt = state.startedAt ? new Date(state.startedAt).getTime() : Date.now();
+  const finishedAt = state.finishedAt ? new Date(state.finishedAt).getTime() : Date.now();
+  const duration = Math.max(0, Math.round((finishedAt - startedAt) / 1000));
+  
+  // شروط القبول
+  const valid = (
+    questions >= 8 &&
+    evidence >= 2 &&
+    secrets >= 1 &&
+    duration >= 180
+  );
+  
+  if (!valid) {
+    toast('لم تُحتسب النتيجة — تحتاج تحقيقاً أعمق (8 أسئلة، دليلان، سر واحد، 3 دقائق)','info',6000);
+    return;
+  }
+  
+  // حساب النقاط
+  let score = verdictData.correct ? 100 : 0;
+  score += 10 * evidence;
+  score += 15 * secrets;
+  score -= 20 * hints;
+  if (score < 0) score = 0;
+  
+  const payload = {
+    player_id: player.id,
+    player_name: player.name,
+    case_id: state.caseData.id,
+    correct: verdictData.correct,
+    score: score,
+    time_seconds: duration,
+    hints: hints,
+    secrets: secrets,
+    evidence: evidence
+  };
+  
+  try {
+    const result = await apiCall('/webhook/library/save-result', payload);
+    if (result.success) {
+      console.log('✅ النتيجة محفوظة:', result);
+      toast(`تم حفظ نتيجتك (${score} نقطة)`,'success',4000);
+    }
+  } catch (e) {
+    console.error('فشل حفظ النتيجة:', e);
+  }
+}
+
+/* ═══════════ عرض المتصدرين ═══════════ */
+
+async function showLeaderboard() {
+  setLoading(true,'جاري تحميل قاعة الشرف','نجمع سجلات المحققين…');
+  try {
+    const data = await apiCall('/webhook/leaderboard', null, 'GET');
+    const players = data.players || [];
+    
+    if (!players.length) {
+      $('podium').innerHTML = '';
+      $('lbList').innerHTML = '';
+      $('lbEmpty').classList.remove('hidden');
+      $('myRank').classList.add('hidden');
+      $('lbSubtitle').textContent = 'لا يوجد محققون بعد';
+    } else {
+      $('lbEmpty').classList.add('hidden');
+      renderPodium(players.slice(0, 3));
+      renderLeaderboardList(players.slice(3, 30));
+      renderMyRank(players);
+      $('lbSubtitle').textContent = `${players.length} محقق في القاعة`;
+    }
+    
+    setLoading(false);
+    setScreen('leaderboardScreen');
+  } catch (e) {
+    setLoading(false);
+    toast('تعذّر تحميل المتصدرين: ' + e.message,'error',5000);
+  }
+}
+
+function renderPodium(top3) {
+  const podium = $('podium');
+  const order = [1, 0, 2]; // ترتيب العرض: #2 - #1 - #3
+  
+  const medals = { 0: 'trophy', 1: 'medal', 2: 'award' };
+  const rankLabels = { 0: '#1', 1: '#2', 2: '#3' };
+  
+  podium.innerHTML = order.map(idx => {
+    const p = top3[idx];
+    if (!p) return '<div></div>';
+    
+    const rank = idx;
+    const rankClass = `rank-${rank + 1}`;
+    
+    return `<div class="podium-card ${rankClass}" data-player-id="${esc(p.id)}">
+      <span class="podium-rank">${rankLabels[rank]}</span>
+      <div class="medal">${icon(medals[rank])}</div>
+      <div class="podium-name">${esc(p.name)}</div>
+      <div class="podium-score">${p.total_score}</div>
+      <div class="podium-score-label">نقطة</div>
+      <div class="podium-stats">
+        <span class="podium-stat">${icon('folder-check')} ${p.cases_solved}</span>
+        <span class="podium-stat">${icon('lock-open')} ${p.total_secrets}</span>
+        <span class="podium-stat">${icon('lightbulb')} ${p.total_hints}</span>
+      </div>
+    </div>`;
+  }).join('');
+  
+  podium.querySelectorAll('[data-player-id]').forEach(c => {
+    c.onclick = () => showPlayerProfile(c.dataset.playerId);
+  });
+  refreshIcons();
+}
+
+function renderLeaderboardList(players) {
+  const myId = getPlayer()?.id;
+  if (!players.length) {
+    $('lbList').innerHTML = '';
+    return;
+  }
+  
+  $('lbList').innerHTML = players.map((p, i) => {
+    const isMe = p.id === myId;
+    const rank = p.rank || (i + 4);
+    return `<div class="lb-row ${isMe ? 'is-me' : ''}" data-player-id="${esc(p.id)}">
+      <div class="lb-rank">#${rank}</div>
+      <div>
+        <div class="lb-name">${esc(p.name)}${isMe ? ' <span style="color:var(--gold2);font-size:10px">(أنت)</span>' : ''}</div>
+        <div class="lb-meta">
+          <span>${icon('folder-check')} ${p.cases_solved} قضية</span>
+          <span>${icon('lock-open')} ${p.total_secrets} سر</span>
+          <span>${icon('lightbulb')} ${p.total_hints} تلميح</span>
+        </div>
+      </div>
+      <div class="lb-score">${p.total_score}<small>نقطة</small></div>
+    </div>`;
+  }).join('');
+  
+  $('lbList').querySelectorAll('[data-player-id]').forEach(r => {
+    r.onclick = () => showPlayerProfile(r.dataset.playerId);
+  });
+  refreshIcons();
+}
+
+function renderMyRank(players) {
+  const myId = getPlayer()?.id;
+  if (!myId) return;
+  
+  const myIndex = players.findIndex(p => p.id === myId);
+  const me = myIndex >= 0 ? players[myIndex] : null;
+  const player = getPlayer();
+  
+  $('myRank').classList.remove('hidden');
+  
+  if (!me) {
+    $('myRankName').textContent = player.name;
+    $('myRankPos').textContent = 'لم تُحتسب بعد';
+    $('myRankScore').textContent = '0';
+    return;
+  }
+  
+  $('myRankName').textContent = me.name;
+  $('myRankPos').textContent = `#${me.rank}`;
+  $('myRankScore').textContent = me.total_score;
+}
+
+/* ═══════════ عرض ملف اللاعب ═══════════ */
+
+async function showPlayerProfile(playerId) {
+  setLoading(true,'جاري فتح الملف','نجمع سجلات المحقق…');
+  try {
+    const data = await apiCall('/webhook/leaderboard/player', { player_id: playerId });
+    
+    if (!data.success || !data.player) {
+      setLoading(false);
+      toast('لم يتم العثور على اللاعب','error');
+      return;
+    }
+    
+    setLoading(false);
+    renderPlayerProfileModal(data);
+  } catch (e) {
+    setLoading(false);
+    toast('خطأ: ' + e.message,'error');
+  }
+}
+
+function renderPlayerProfileModal(data) {
+  const p = data.player;
+  const details = data.details || [];
+  const myId = getPlayer()?.id;
+  const isMe = myId === p.id;
+  
+  const totalTime = details.reduce((s, d) => s + (d.case_time_seconds || 0), 0);
+  const avgTime = details.filter(d => d.case_time_seconds).length
+    ? Math.round(totalTime / details.filter(d => d.case_time_seconds).length)
+    : 0;
+  
+  const fmtTime = (sec) => {
+    if (!sec) return '—';
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return `${m}د ${String(s).padStart(2,'0')}ث`;
+  };
+  
+  const detailsHTML = details.length ? details.map(d => {
+    const solved = d.is_solved;
+    const iconName = solved ? 'check-circle-2' : 'circle-x';
+    const color = solved ? 'var(--green)' : 'var(--red2)';
+    return `<div class="profile-case-row">
+      <div class="profile-case-icon" style="color:${color}">${icon(iconName)}</div>
+      <div class="profile-case-info">
+        <div class="profile-case-title">${esc(d.case_title)}</div>
+        <div class="profile-case-meta">
+          <span>${icon('search')} ${d.best_evidence || 0}</span>
+          <span>${icon('lock-open')} ${d.best_secrets || 0}</span>
+          <span>${icon('lightbulb')} ${d.best_hints || 0}</span>
+          <span>${icon('clock')} ${fmtTime(d.case_time_seconds)}</span>
+          <span>${icon('rotate-cw')} ${d.attempts || 1}</span>
+        </div>
+      </div>
+      <div class="profile-case-score">${d.case_score || 0}<small>نقطة</small></div>
+    </div>`;
+  }).join('') : '<div class="empty-state" style="font-size:11px;padding:16px">لا يوجد سجل بعد</div>';
+  
+  showModal(`
+    <div class="profile-header">
+      <div class="profile-avatar">${icon('user-round')}</div>
+      <div class="profile-name">${esc(p.name)}</div>
+      ${isMe ? '<div class="profile-badge">أنت</div>' : ''}
+      <div class="profile-rank">#${p.rank}</div>
+    </div>
+    
+    <div class="profile-stats">
+      <div class="profile-stat"><strong>${p.total_score}</strong><span>نقطة</span></div>
+      <div class="profile-stat"><strong>${p.cases_solved}</strong><span>قضية محلولة</span></div>
+      <div class="profile-stat"><strong>${p.total_secrets}</strong><span>سر مكشوف</span></div>
+    </div>
+    
+    <div class="profile-stats">
+      <div class="profile-stat"><strong>${p.total_evidence}</strong><span>دليل</span></div>
+      <div class="profile-stat"><strong>${p.total_hints}</strong><span>تلميح</span></div>
+      <div class="profile-stat"><strong>${fmtTime(totalTime)}</strong><span>وقت اللعب</span></div>
+    </div>
+    
+    <div class="profile-section-title">
+      ${icon('folder-open')} سجل القضايا (${details.length})
+    </div>
+    <div class="profile-case-list">${detailsHTML}</div>
+    
+    <div class="modal-actions">
+      <button class="btn btn-secondary" id="closeProfile">إغلاق</button>
+    </div>
+  `);
+  
+  $('closeProfile').onclick = closeModal;
+  refreshIcons();
+}
+
+/* ═══════════ Init ═══════════ */
+function init(){
+  $('copyrightYear').textContent='© '+new Date().getFullYear();
+  const saved=safeParse(localStorage.getItem(STORAGE_KEY),null);
+  const hasSaved=!!(saved&&saved.caseData&&!saved.verdict);
+  $('resumeBtn').disabled=!hasSaved;
+  $('resumeBtn').style.opacity=hasSaved?'1':'.5';
+  if(hasSaved)$('landingStatus').textContent='يوجد تحقيق محفوظ. يمكنك استئنافه.';
+  
+  $('openLibraryBtn').onclick=loadLibrary;
+  $('randomCaseBtn').onclick=loadRandomCase;
+  $('refreshLibraryBtn').onclick=loadLibrary;
+  $('resumeBtn').onclick=()=>{
+    const s=safeParse(localStorage.getItem(STORAGE_KEY),null);
+    if(!s||!s.caseData){toast('لا يوجد محفوظ.','info');return}
+    state={...blankState(),...s};
+    state.sessionId=state.sessionId||uuid();
+    if(state.verdict)state.verdict=null;
+    activateGame();toast('استُعيد التحقيق.');
+  };
+  $('settingsBtn').onclick=showLeaderboard;
+$('refreshLeaderboardBtn') && ($('refreshLeaderboardBtn').onclick=showLeaderboard);
+  $('soundToggle').onclick=toggleVoice;
+  $('hintBtn').onclick=requestHint;
+  $('sendQuestionBtn').onclick=sendQuestion;
+  $('micBtn').onclick=initRecognition;
+  $('readLastBtn').onclick=()=>{
+    const id=state.activeSuspectId;
+    const s=id&&state.caseData?.suspects.find(x=>x.id===id);
+    const last=id&&state.lastReplyBySuspect[id];
+    if(last)speak(last,s?.emotional_state||'calm');else toast('لا رد بعد.','info');
+  };
+  $('submitVerdictBtn').onclick=submitVerdict;
+  $('closeCaseBtn').onclick=goHome;
+  $('gotoSuspectsBtn').onclick=()=>setScreen('suspectsScreen');
+  $('saveNotesBtn').onclick=()=>{state.notes=$('investigatorNotes').value;saveState(true);toast('حُفظت.')};
+  $('conclusionNewCase').onclick=()=>{state=blankState();goHome();setTimeout(loadLibrary,300)};
+  $('conclusionHome').onclick=goHome;
+  
+  document.querySelectorAll('.dock-btn').forEach(b=>b.onclick=()=>setScreen(b.dataset.screen));
+  document.querySelectorAll('[data-back]').forEach(b=>b.onclick=()=>setScreen(b.dataset.back));
+  
+  $('difficultyFilters').querySelectorAll('[data-diff]').forEach(b=>b.onclick=()=>{
+    currentFilter.difficulty=b.dataset.diff;
+    $('difficultyFilters').querySelectorAll('[data-diff]').forEach(x=>x.classList.toggle('active',x===b));
+    renderLibrary();
+  });
+  
+  document.querySelectorAll('[data-question]').forEach(b=>b.onclick=()=>{
+    if(!state.activeSuspectId){toast('اختر مشتبهًا.','info');return}
+    const inp=$('questionInput');inp.value=b.dataset.question;inp.focus();
+  });
+  
+  document.querySelectorAll('.tab-btn').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll('.tab-btn').forEach(x=>x.classList.toggle('active',x===b));
+    document.querySelectorAll('.tab-content').forEach(c=>c.classList.toggle('active',c.id===b.dataset.tab));
+  });
+  
+  const q=$('questionInput');
+  q.addEventListener('input',e=>{e.target.style.height='auto';e.target.style.height=Math.min(e.target.scrollHeight,110)+'px'});
+  q.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendQuestion()}});
+  
+  $('modalBackdrop').addEventListener('click',e=>{if(e.target===$('modalBackdrop'))closeModal()});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden){saveState(true);if('speechSynthesis'in window)speechSynthesis.pause()}});
+  window.addEventListener('beforeunload',()=>saveState(true));
+  
+  if(!settings.voice)$('soundToggle').innerHTML=icon('volume-x');
+  updateHintButton();
+ // طلب اسم اللاعب عند أول فتح
+ensurePlayer();
+ refreshIcons();
+}
+init();
+</script>
+</body>
+</html>
